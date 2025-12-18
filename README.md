@@ -37,7 +37,7 @@ Formatted Response
 **LLMs & Inference**
 - **Groq API** - Fast inference for Agent 1 routing (`llama-3.3-70b-versatile`) and Agent 4 synthesis (`llama-3.1-8b-instant`)
 - [Groq](https://groq.com/) - Fast API for KG ingestion (`llama-3.1-8b-instant`)
--
+  
 **RAG Orchestration**
 - [LangChain](https://python.langchain.com/) - Multi-agent coordination, prompt management
 - [LlamaIndex](https://www.llamaindex.ai/) - Graph/vector store abstractions
