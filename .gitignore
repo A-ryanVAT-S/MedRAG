@@ -1,0 +1,67 @@
+# Environment variables (contains sensitive credentials)
+.env
+
+# Virtual environment
+venv/
+env/
+ENV/
+*.virtualenv
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# ChromaDB vector database (large files, should be regenerated)
+DB/chroma_db/
+DB/.llm_cache.json # Cache for LLM responses
+
+# Large data files (too big for GitHub, can be easily found on kaggle)
+data/medicine_data.csv
+
+# Embedding cache (regenerated during ingestion)
+embeddings_cache.pkl
+
+# Neo4j local database (if running locally)
+neo4j_data/
+*.db
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# OS files
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+logs/
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# MyPy type checker
+.mypy_cache/
+
+# Other
+*.bak
+*.tmp
+.cache/
