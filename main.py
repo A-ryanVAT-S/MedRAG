@@ -20,8 +20,7 @@ class MedRAGOrchestrator:
         neo4j_uri: str = None,
         neo4j_user: str = None,
         neo4j_password: str = None,
-        chroma_path: str = "./DB/chroma_db",
-        llm_model: str = "llama3.2:3b"
+        chroma_path: str = None
     ):
         print("\n" + "*"*80)
         print("Initializing MedRAG Multi-Agent System")
@@ -34,7 +33,7 @@ class MedRAGOrchestrator:
             neo4j_password=neo4j_password
         )
         self.vector_agent = VectorRetrievalAgent(chroma_path=chroma_path)
-        self.synthesis_agent = ResponseSynthesisAgent(model_name=llm_model)
+        self.synthesis_agent = ResponseSynthesisAgent()
         
         print("\nAll agents initialized successfully!\n")
     

@@ -22,7 +22,6 @@ llama-index-graph-stores-neo4j>=0.2.0
 
 # -------- LLM APIs / Runtime --------
 groq
-ollama>=0.1.0
 
 # -------- Utils --------
 python-dotenv

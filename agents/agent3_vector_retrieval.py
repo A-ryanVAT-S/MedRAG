@@ -1,6 +1,8 @@
 #Vector-DB Retrieval Agent for Medicine Documents
 import json
 import re
+import os
+from pathlib import Path
 from typing import Dict, Optional
 from llama_index.core import VectorStoreIndex, StorageContext, Settings
 from llama_index.vector_stores.chroma import ChromaVectorStore
@@ -12,12 +14,17 @@ import chromadb
 class VectorRetrievalAgent:
     def __init__(
         self,
-        chroma_path: str = "../DB/chroma_db",
+        chroma_path: str = None,
         collection_name: str = "medicines",
         top_k: int = 5
     ):
         #init parameters
         self.top_k = top_k
+        
+        # Set default path relative to project root
+        if chroma_path is None:
+            project_root = Path(__file__).parent.parent
+            chroma_path = str(project_root / "DB" / "chroma_db")
         
         Settings.embed_model = HuggingFaceEmbedding(
             model_name="BAAI/bge-base-en-v1.5"
@@ -142,8 +149,7 @@ class VectorRetrievalAgent:
     
     def retrieve_by_medicine_name(self, medicine_name: str) -> Dict:
         # Retrieve information about a specific medicine
-    
-        query = f"{medicine_name} medicine information side effects dosage interactions"
+        query = medicine_name
         return self.retrieve_medicines(query)
     
     def _get_fallback_response(self, error_msg: str) -> Dict:

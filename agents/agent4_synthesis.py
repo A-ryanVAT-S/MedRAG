@@ -1,31 +1,33 @@
 #Response Synthesis Agent
 
 import json
+import os
 from typing import Dict, List, Optional
-from langchain_ollama import OllamaLLM
-from langchain_core.prompts import PromptTemplate
+from groq import Groq
+from dotenv import load_dotenv
 
+load_dotenv()
 
 class ResponseSynthesisAgent:
     
-    def __init__(self, model_name: str = "llama3.2:3b"):
-        self.llm = OllamaLLM(model=model_name, temperature=0.3)
-        print(f" [Agent 4] Connected to Ollama LLM (Model: {model_name})")
+    def __init__(self):
+        groq_api_key = os.getenv("GROQ_API_KEY")
+        self.client = Groq(api_key=groq_api_key)
+        self.model = "llama-3.1-8b-instant"
+        print(f" [Agent 4] Connected to Groq LLM (Model: {self.model})")
         
-        self.synthesis_prompt = PromptTemplate(
-    input_variables=["query", "kg_data", "vector_data"],
-    template="""You are a medical information assistant.
+        self.synthesis_prompt = """You are a medical information assistant.
 Your task is to synthesize ONLY the retrieved data provided below.
 
 User Query:
-{query}
+{{query}}
 
 -----------------------------------
 Knowledge Graph Data (may be EMPTY):
-{kg_data}
+{{kg_data}}
 
 Vector Database Data (may be EMPTY):
-{vector_data}
+{{vector_data}}
 
 -----------------------------------
 STRICT RULES:
@@ -52,7 +54,6 @@ End with:
 -----------------------------------
 Generate a clear, structured response:
 """
-        )
     
     def synthesize_response(
         self,
@@ -71,13 +72,18 @@ Generate a clear, structured response:
         
         # Generate synthesis
         try:
-            prompt = self.synthesis_prompt.format(
-                query=user_query,
-                kg_data=kg_text,
-                vector_data=vector_text
-            )
+            prompt = self.synthesis_prompt.replace("{{query}}", user_query).replace("{{kg_data}}", kg_text).replace("{{vector_data}}", vector_text)
             
-            response_text = self.llm.invoke(prompt)
+            chat_completion = self.client.chat.completions.create(
+                messages=[
+                    {"role": "system", "content": "You are a medical information assistant that synthesizes retrieved data accurately."},
+                    {"role": "user", "content": prompt}
+                ],
+                model=self.model,
+                temperature=0.3,
+                max_tokens=1024
+            )
+            response_text = chat_completion.choices[0].message.content
             
             # Build structured response
             response = {

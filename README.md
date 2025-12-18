@@ -10,7 +10,7 @@ Multi-agent medical QA system with hybrid retrieval:
 - **Knowledge Graph (Neo4j)**: Structured disease-symptom-treatment relationships
 - **Vector Database (ChromaDB)**: Semantic search over 195k medicine descriptions
 - **4-Agent Pipeline**: Router → KG Retrieval → Vector Retrieval → Synthesis
-- **Local LLM**: Privacy-first inference with Ollama
+- **Groq LLMs**: Fast inference with llama-3.3-70b (routing) and llama-3.1-8b (synthesis)
 
 ## Architecture
 
@@ -35,10 +35,9 @@ Formatted Response
 ## Tech Stack
 
 **LLMs & Inference**
-- **Groq API** - Fast inference for Agent 1 routing (`llama-3.3-70b-versatile`)
-- [Ollama](https://ollama.ai/) - Local LLM runtime for synthesis (`llama3.2:3b`)
-- [Groq](https://groq.com/) - Fast API for KG ingestion only (`llama-3.1-8b-instant`)
-
+- **Groq API** - Fast inference for Agent 1 routing (`llama-3.3-70b-versatile`) and Agent 4 synthesis (`llama-3.1-8b-instant`)
+- [Groq](https://groq.com/) - Fast API for KG ingestion (`llama-3.1-8b-instant`)
+-
 **RAG Orchestration**
 - [LangChain](https://python.langchain.com/) - Multi-agent coordination, prompt management
 - [LlamaIndex](https://www.llamaindex.ai/) - Graph/vector store abstractions
@@ -51,7 +50,7 @@ Formatted Response
 - [sentence-transformers](https://www.sbert.net/) - `BAAI/bge-base-en-v1.5` (768-dim)
 
 **Python Stack**
-- `langchain-community`, `langchain-ollama`, `langchain-core`
+- `langchain-community`, `langchain-core`
 - `llama-index-core`, `llama-index-graph-stores-neo4j`, `llama-index-vector-stores-chroma`, `llama-index-embeddings-huggingface`
 - `python-dotenv`, `pydantic`, `numpy`, `tqdm`
 
@@ -67,10 +66,8 @@ pip install -r requirements.txt
 
 **Prerequisites:**
 - Python 3.10+
-- [Ollama](https://ollama.ai/) with `llama3.2:3b` model (for Agent 4 synthesis)
-- Groq API key (for Agent 1 routing with 70B model)
+- Groq API key (for Agent 1 routing and Agent 4 synthesis)
 - Neo4j (local or [Aura](https://neo4j.com/cloud/aura/))
-- Groq API key (ingestion only)
 - CUDA GPU (recommended for embedding generation)
 
 **Setup Environment:**
@@ -144,6 +141,8 @@ MedRAG/
 │   ├── disease_data.csv          # Included
 │   └── medicine_data.csv         # Download separately
 ├── examples/
+|    ├── testing.py                 #some example queries
+│    └── medicine_data.csv          #their ans
 ├── main.py                        # Orchestrator & CLI
 ├── requirements.txt
 ├── .env                           # Create this
@@ -155,7 +154,6 @@ MedRAG/
 - **Intent-based routing**: Directs queries to appropriate retrieval strategy
 - **Hybrid retrieval**: Combines structured (KG) and unstructured (Vector) data
 - **Citation tracking**: Every fact attributed to source (KG or Vector DB)
-- **Local-first**: All runtime inference via Ollama (no external API calls while running)
 - **Graceful degradation**: Works with partial data availability
 
 ## Performance
@@ -178,7 +176,7 @@ MedRAG/
 
 ## Acknowledgments
 
-Built with: [LangChain](https://github.com/langchain-ai/langchain), [LlamaIndex](https://github.com/run-llama/llama_index), [Ollama](https://github.com/ollama/ollama), [Neo4j](https://github.com/neo4j/neo4j), [ChromaDB](https://github.com/chroma-core/chroma), [sentence-transformers](https://github.com/UKPLab/sentence-transformers)
+Built with: [LangChain](https://github.com/langchain-ai/langchain), [LlamaIndex](https://github.com/run-llama/llama_index),[Neo4j](https://github.com/neo4j/neo4j), [ChromaDB](https://github.com/chroma-core/chroma), [sentence-transformers](https://github.com/UKPLab/sentence-transformers)
 
 Dataset: [Indian Medicine Data](https://www.kaggle.com/datasets/mohneesh7/indian-medicine-data)
 

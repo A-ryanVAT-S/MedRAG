@@ -55,7 +55,7 @@ Rather than one monolithic system, we have 4 specialized agents:
 
 **Agent 4: Synthesis Agent**
 - Takes results from Agent 2 and Agent 3
-- Combines them into a natural language answer
+- Uses Groq API (llama-3.1-8b-instant) to combine them into natural language
 - Adds citations showing where each fact came from
 - Includes medical disclaimer
 
@@ -193,7 +193,7 @@ Input:
 
 Agent 4 Process:
 1. Format both data sources into readable text
-2. Send to Ollama LLM with synthesis prompt:
+2. Send to Groq API (llama-3.1-8b-instant) with synthesis prompt:
    "Combine these facts into a helpful response for the user"
 3. LLM generates natural language response:
    "Based on your symptoms of fever and cough, you may have:
@@ -238,7 +238,7 @@ The response is formatted with:
 ### 2. LangChain
 **What**: Framework for LLM application development
 **Why**: Easy prompt management and LLM orchestration
-**How**: PromptTemplate for structured prompts, Ollama integration for local LLM
+**How**: PromptTemplate for structured prompts
 
 ### 3. Neo4j
 **What**: Graph database for connected data
@@ -264,11 +264,6 @@ The response is formatted with:
 - Input: "Paracetamol for fever" 
 - Output: [0.23, -0.45, 0.67, ..., 0.12] (768 numbers)
 - Similar texts have similar vectors
-
-### 6. Ollama
-**What**: Tool for running LLMs locally
-**Why**: No API costs, no data sent to external services, privacy
-**How**: Downloads and runs Llama 3.2 3B model on your computer
 
 ## Data Flow Deep Dive
 
@@ -479,11 +474,6 @@ Example: "I have flu, should I take aspirin?"
 - Python-native API
 - Good performance for medium-scale datasets
 
-**Why Ollama over OpenAI?**
-- No API costs
-- Local inference (privacy)
-- Consistent availability
-- Can run offline
 
 **Why 4 Agents?**
 - More than 4: Too complex, harder to debug

@@ -16,7 +16,7 @@ __pycache__/
 
 # ChromaDB vector database (large files, should be regenerated)
 DB/chroma_db/
-DB/.llm_cache.json # Cache for LLM responses
+DB/.llm_cache.json 
 
 # Large data files (too big for GitHub, can be easily found on kaggle)
 data/medicine_data.csv

@@ -71,7 +71,7 @@ ARCHITECTURE = """
 │  │  • Generates coherent natural language response                     │    │
 │  │  • Adds citations for each fact (source tracking)                   │    │
 │  │  • Includes medical safety disclaimer                               │    │
-│  │  • LLM: Ollama (llama3.2:3b)                                        │    │
+│  │  • LLM: Groq (llama-3.1-8b-instant)                                 │    │
 │  └─────────────────────────────────────────────────────────────────────┘    │
 │                                                                             │
 │  Output: {                                                                  │
@@ -129,7 +129,7 @@ Display: Formatted response with citations
 │    Component     │    Technology    │            Purpose                     │
 ├──────────────────┼──────────────────┼────────────────────────────────────────┤
 │ Orchestration    │ LangChain        │ Multi-agent workflow management        │
-│ LLM              │ Ollama           │ Local inference (Llama 3.2 3B)         │
+│ LLM              │ Groq             │ Local inference (llama-3.1-8b-instant) │
 │ KG Creation      | Groq             | Using CSV+ingenstion Pipeline          │
 | VectorDB Creation| BAAI/base-model  | Embedding generation for documents(csv)│
 | KG Storage       │ Neo4j            │ Disease-symptom graph relationships    │
