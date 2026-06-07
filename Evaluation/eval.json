@@ -1,0 +1,5708 @@
+{
+  "config": {
+    "mode": "retrieval",
+    "agent_model": null,
+    "judge_model": null,
+    "benchmark": "benchmark.csv",
+    "n_questions": 100,
+    "timestamp": "2026-06-07T14:58:33"
+  },
+  "global": {
+    "n": 100,
+    "recall@1": 0.47,
+    "recall@3": 0.55,
+    "recall@5": 0.64,
+    "mrr": 0.521,
+    "ndcg@5": 0.55,
+    "latency_ms": {
+      "retrieval": {
+        "mean": 979.85,
+        "p50": 257.1,
+        "p95": 4144.6,
+        "min": 0.1,
+        "max": 12586.3
+      }
+    }
+  },
+  "by_category": {
+    "disease_kg": {
+      "n": 40,
+      "recall@1": 0.35,
+      "recall@3": 0.5,
+      "recall@5": 0.625,
+      "mrr": 0.43,
+      "ndcg@5": 0.478,
+      "latency_ms": {
+        "retrieval": {
+          "mean": 244.74,
+          "p50": 241.9,
+          "p95": 312.5,
+          "min": 1.7,
+          "max": 500.3
+        }
+      }
+    },
+    "hybrid": {
+      "n": 15,
+      "recall@1": 0.2,
+      "recall@3": 0.333,
+      "recall@5": 0.6,
+      "mrr": 0.327,
+      "ndcg@5": 0.393,
+      "latency_ms": {
+        "retrieval": {
+          "mean": 297.87,
+          "p50": 240.2,
+          "p95": 308.1,
+          "min": 217.9,
+          "max": 1045.6
+        }
+      }
+    },
+    "medicine_vector": {
+      "n": 45,
+      "recall@1": 0.667,
+      "recall@3": 0.667,
+      "recall@5": 0.667,
+      "mrr": 0.667,
+      "ndcg@5": 0.667,
+      "latency_ms": {
+        "retrieval": {
+          "mean": 1860.61,
+          "p50": 465.2,
+          "p95": 5151.2,
+          "min": 0.1,
+          "max": 12586.3
+        }
+      }
+    }
+  },
+  "by_retrieval_type": {
+    "known_item": {
+      "n": 25,
+      "recall@1": 0.96,
+      "recall@3": 0.96,
+      "recall@5": 0.96,
+      "mrr": 0.96,
+      "ndcg@5": 0.96,
+      "latency_ms": {
+        "retrieval": {
+          "mean": 74.12,
+          "p50": 0.3,
+          "p95": 213.0,
+          "min": 0.1,
+          "max": 214.6
+        }
+      }
+    },
+    "multi_hop": {
+      "n": 15,
+      "recall@1": 0.2,
+      "recall@3": 0.333,
+      "recall@5": 0.6,
+      "mrr": 0.327,
+      "ndcg@5": 0.393,
+      "latency_ms": {
+        "retrieval": {
+          "mean": 297.87,
+          "p50": 240.2,
+          "p95": 308.1,
+          "min": 217.9,
+          "max": 1045.6
+        }
+      }
+    },
+    "semantic": {
+      "n": 60,
+      "recall@1": 0.333,
+      "recall@3": 0.433,
+      "recall@5": 0.517,
+      "mrr": 0.387,
+      "ndcg@5": 0.418,
+      "latency_ms": {
+        "retrieval": {
+          "mean": 1527.73,
+          "p50": 317.6,
+          "p95": 4767.8,
+          "min": 217.5,
+          "max": 12586.3
+        }
+      }
+    }
+  },
+  "per_query": [
+    {
+      "id": 1,
+      "category": "disease_kg",
+      "subtype": "disease_by_symptoms",
+      "difficulty": "medium",
+      "retrieval_type": "semantic",
+      "question": "I have red, itchy patches on my skin that seem oily, and I noticed some dandruff and flaky areas on my scalp. Could you tell me what condition this might be?",
+      "gold": [
+        "Seborrheic Dermatitis"
+      ],
+      "store": "kg",
+      "score_mode": "rank",
+      "relevance_terms": [],
+      "ground_truth": "Seborrheic Dermatitis",
+      "answer": "",
+      "retrieved_top5": [
+        "seborrheic dermatitis",
+        "cyst of the eyelid",
+        "chalazion",
+        "pinguecula",
+        "dry skin"
+      ],
+      "rank": 1,
+      "gold_found": true,
+      "retrieval_trace": [
+        {
+          "tool": "symptoms",
+          "store": "kg",
+          "latency_ms": 500.3,
+          "top5": [
+            "seborrheic dermatitis",
+            "cyst of the eyelid",
+            "chalazion",
+            "pinguecula",
+            "dry skin"
+          ],
+          "gold_rank": 1
+        }
+      ],
+      "recall@1": 1,
+      "recall@3": 1,
+      "recall@5": 1,
+      "reciprocal_rank": 1.0,
+      "ndcg@5": 1.0,
+      "tools_called": [],
+      "expected_tools": [
+        "find_diseases_by_symptoms"
+      ],
+      "routing_recall": null,
+      "evidence_recall": null,
+      "gold_mention": null,
+      "judge_score": null,
+      "judge_verdict": "n/a",
+      "latency_ms": {
+        "end_to_end": 500.3,
+        "retrieval": 500.3
+      }
+    },
+    {
+      "id": 2,
+      "category": "disease_kg",
+      "subtype": "disease_by_symptoms",
+      "difficulty": "medium",
+      "retrieval_type": "semantic",
+      "question": "I've noticed my daughter has short stature, her neck is webbed, and she seems to have some swelling in her legs. Could these be signs of a specific condition?",
+      "gold": [
+        "Turner syndrome"
+      ],
+      "store": "kg",
+      "score_mode": "rank",
+      "relevance_terms": [],
+      "ground_truth": "Short stature, gonadal dysgenesis, webbed neck, lymphedema",
+      "answer": "",
+      "retrieved_top5": [
+        "pseudohypoparathyroidism",
+        "ethylene glycol poisoning",
+        "diabetic kidney disease",
+        "complex regional pain syndrome",
+        "turner syndrome"
+      ],
+      "rank": 5,
+      "gold_found": true,
+      "retrieval_trace": [
+        {
+          "tool": "symptoms",
+          "store": "kg",
+          "latency_ms": 317.6,
+          "top5": [
+            "pseudohypoparathyroidism",
+            "ethylene glycol poisoning",
+            "diabetic kidney disease",
+            "complex regional pain syndrome",
+            "turner syndrome"
+          ],
+          "gold_rank": 5
+        }
+      ],
+      "recall@1": 0,
+      "recall@3": 0,
+      "recall@5": 1,
+      "reciprocal_rank": 0.2,
+      "ndcg@5": 0.387,
+      "tools_called": [],
+      "expected_tools": [
+        "find_diseases_by_symptoms"
+      ],
+      "routing_recall": null,
+      "evidence_recall": null,
+      "gold_mention": null,
+      "judge_score": null,
+      "judge_verdict": "n/a",
+      "latency_ms": {
+        "end_to_end": 317.6,
+        "retrieval": 317.6
+      }
+    },
+    {
+      "id": 3,
+      "category": "disease_kg",
+      "subtype": "disease_by_symptoms",
+      "difficulty": "medium",
+      "retrieval_type": "semantic",
+      "question": "I have some skin sores, I've been running a fever for a while now, and I've lost quite a bit of weight recently. Could you tell me what might be causing these symptoms?",
+      "gold": [
+        "Leishmaniasis"
+      ],
+      "store": "kg",
+      "score_mode": "rank",
+      "relevance_terms": [],
+      "ground_truth": "Skin sores, fever, weight loss",
+      "answer": "",
+      "retrieved_top5": [
+        "acute pancreatitis",
+        "juvenile rheumatoid arthritis",
+        "scarlet fever",
+        "tuberculosis",
+        "mumps"
+      ],
+      "rank": null,
+      "gold_found": false,
+      "retrieval_trace": [
+        {
+          "tool": "symptoms",
+          "store": "kg",
+          "latency_ms": 264.3,
+          "top5": [
+            "acute pancreatitis",
+            "juvenile rheumatoid arthritis",
+            "scarlet fever",
+            "tuberculosis",
+            "mumps"
+          ],
+          "gold_rank": null
+        }
+      ],
+      "recall@1": 0,
+      "recall@3": 0,
+      "recall@5": 0,
+      "reciprocal_rank": 0.0,
+      "ndcg@5": 0.0,
+      "tools_called": [],
+      "expected_tools": [
+        "find_diseases_by_symptoms"
+      ],
+      "routing_recall": null,
+      "evidence_recall": null,
+      "gold_mention": null,
+      "judge_score": null,
+      "judge_verdict": "n/a",
+      "latency_ms": {
+        "end_to_end": 264.3,
+        "retrieval": 264.3
+      }
+    },
+    {
+      "id": 4,
+      "category": "disease_kg",
+      "subtype": "disease_by_symptoms",
+      "difficulty": "medium",
+      "retrieval_type": "semantic",
+      "question": "I've been noticing my vision getting worse slowly, and some blind spots too. Could this be because of any specific condition?",
+      "gold": [
+        "Normal-Tension Glaucoma"
+      ],
+      "store": "kg",
+      "score_mode": "rank",
+      "relevance_terms": [],
+      "ground_truth": "Gradual loss of vision, visual field defects",
+      "answer": "",
+      "retrieved_top5": [
+        "congenital rubella",
+        "pituitary adenoma",
+        "normal-tension glaucoma",
+        "tuberous sclerosis",
+        "macular degeneration"
+      ],
+      "rank": 3,
+      "gold_found": true,
+      "retrieval_trace": [
+        {
+          "tool": "symptoms",
+          "store": "kg",
+          "latency_ms": 276.2,
+          "top5": [
+            "congenital rubella",
+            "pituitary adenoma",
+            "normal-tension glaucoma",
+            "tuberous sclerosis",
+            "macular degeneration"
+          ],
+          "gold_rank": 3
+        }
+      ],
+      "recall@1": 0,
+      "recall@3": 1,
+      "recall@5": 1,
+      "reciprocal_rank": 0.333,
+      "ndcg@5": 0.5,
+      "tools_called": [],
+      "expected_tools": [
+        "find_diseases_by_symptoms"
+      ],
+      "routing_recall": null,
+      "evidence_recall": null,
+      "gold_mention": null,
+      "judge_score": null,
+      "judge_verdict": "n/a",
+      "latency_ms": {
+        "end_to_end": 276.2,
+        "retrieval": 276.2
+      }
+    },
+    {
+      "id": 5,
+      "category": "disease_kg",
+      "subtype": "disease_by_symptoms",
+      "difficulty": "medium",
+      "retrieval_type": "semantic",
+      "question": "I've been having pain, swelling, and trouble moving my arm. It's also pretty bruised and deformed. Could you tell me what might be causing this?",
+      "gold": [
+        "Fracture of the Arm"
+      ],
+      "store": "kg",
+      "score_mode": "rank",
+      "relevance_terms": [],
+      "ground_truth": "Pain, swelling, deformity, limited mobility or difficulty moving the arm, bruising",
+      "answer": "",
+      "retrieved_top5": [
+        "ovarian torsion",
+        "chronic headache",
+        "neuropathic pain",
+        "carpal tunnel syndrome",
+        "cirrhosis"
+      ],
+      "rank": null,
+      "gold_found": false,
+      "retrieval_trace": [
+        {
+          "tool": "symptoms",
+          "store": "kg",
+          "latency_ms": 271.0,
+          "top5": [
+            "ovarian torsion",
+            "chronic headache",
+            "neuropathic pain",
+            "carpal tunnel syndrome",
+            "cirrhosis"
+          ],
+          "gold_rank": null
+        }
+      ],
+      "recall@1": 0,
+      "recall@3": 0,
+      "recall@5": 0,
+      "reciprocal_rank": 0.0,
+      "ndcg@5": 0.0,
+      "tools_called": [],
+      "expected_tools": [
+        "find_diseases_by_symptoms"
+      ],
+      "routing_recall": null,
+      "evidence_recall": null,
+      "gold_mention": null,
+      "judge_score": null,
+      "judge_verdict": "n/a",
+      "latency_ms": {
+        "end_to_end": 271.0,
+        "retrieval": 271.0
+      }
+    },
+    {
+      "id": 6,
+      "category": "disease_kg",
+      "subtype": "disease_by_symptoms",
+      "difficulty": "medium",
+      "retrieval_type": "semantic",
+      "question": "I've been really itching at night, like crazy! And I noticed some small bumps or blisters on my skin too. Could this be something specific?",
+      "gold": [
+        "Scabies"
+      ],
+      "store": "kg",
+      "score_mode": "rank",
+      "relevance_terms": [],
+      "ground_truth": "Intense itching, especially at night, and small blisters or bumps",
+      "answer": "",
+      "retrieved_top5": [
+        "scabies",
+        "intertrigo",
+        "food allergy",
+        "polycythemia vera",
+        "gestational cholestasis"
+      ],
+      "rank": 1,
+      "gold_found": true,
+      "retrieval_trace": [
+        {
+          "tool": "symptoms",
+          "store": "kg",
+          "latency_ms": 271.6,
+          "top5": [
+            "scabies",
+            "intertrigo",
+            "food allergy",
+            "polycythemia vera",
+            "gestational cholestasis"
+          ],
+          "gold_rank": 1
+        }
+      ],
+      "recall@1": 1,
+      "recall@3": 1,
+      "recall@5": 1,
+      "reciprocal_rank": 1.0,
+      "ndcg@5": 1.0,
+      "tools_called": [],
+      "expected_tools": [
+        "find_diseases_by_symptoms"
+      ],
+      "routing_recall": null,
+      "evidence_recall": null,
+      "gold_mention": null,
+      "judge_score": null,
+      "judge_verdict": "n/a",
+      "latency_ms": {
+        "end_to_end": 271.6,
+        "retrieval": 271.6
+      }
+    },
+    {
+      "id": 7,
+      "category": "disease_kg",
+      "subtype": "disease_by_symptoms",
+      "difficulty": "medium",
+      "retrieval_type": "semantic",
+      "question": "I've been experiencing really bad joint pain, swelling, and redness all of a sudden. Could this be due to some kind of condition?",
+      "gold": [
+        "Gout"
+      ],
+      "store": "kg",
+      "score_mode": "rank",
+      "relevance_terms": [],
+      "ground_truth": "Yes, symptoms such as intense joint pain, swelling, and redness can be indicative of conditions like gout.",
+      "answer": "",
+      "retrieved_top5": [
+        "pilonidal cyst",
+        "balanitis",
+        "corneal abrasion",
+        "vaginal yeast infection",
+        "cellulitis"
+      ],
+      "rank": null,
+      "gold_found": false,
+      "retrieval_trace": [
+        {
+          "tool": "symptoms",
+          "store": "kg",
+          "latency_ms": 271.5,
+          "top5": [
+            "pilonidal cyst",
+            "balanitis",
+            "corneal abrasion",
+            "vaginal yeast infection",
+            "cellulitis"
+          ],
+          "gold_rank": null
+        }
+      ],
+      "recall@1": 0,
+      "recall@3": 0,
+      "recall@5": 0,
+      "reciprocal_rank": 0.0,
+      "ndcg@5": 0.0,
+      "tools_called": [],
+      "expected_tools": [
+        "find_diseases_by_symptoms"
+      ],
+      "routing_recall": null,
+      "evidence_recall": null,
+      "gold_mention": null,
+      "judge_score": null,
+      "judge_verdict": "n/a",
+      "latency_ms": {
+        "end_to_end": 271.5,
+        "retrieval": 271.5
+      }
+    },
+    {
+      "id": 8,
+      "category": "disease_kg",
+      "subtype": "disease_by_symptoms",
+      "difficulty": "medium",
+      "retrieval_type": "semantic",
+      "question": "I've noticed my child is having some developmental delays, intellectual disability, hearing loss, vision problems, and heart defects. Could these symptoms point to any specific condition?",
+      "gold": [
+        "Congenital rubella"
+      ],
+      "store": "kg",
+      "score_mode": "rank",
+      "relevance_terms": [],
+      "ground_truth": "Developmental delays, intellectual disability, hearing loss, vision problems, and heart defects",
+      "answer": "",
+      "retrieved_top5": [
+        "congenital rubella",
+        "edward syndrome",
+        "fetal alcohol syndrome",
+        "lead poisoning",
+        "tuberous sclerosis"
+      ],
+      "rank": 1,
+      "gold_found": true,
+      "retrieval_trace": [
+        {
+          "tool": "symptoms",
+          "store": "kg",
+          "latency_ms": 232.8,
+          "top5": [
+            "congenital rubella",
+            "edward syndrome",
+            "fetal alcohol syndrome",
+            "lead poisoning",
+            "tuberous sclerosis"
+          ],
+          "gold_rank": 1
+        }
+      ],
+      "recall@1": 1,
+      "recall@3": 1,
+      "recall@5": 1,
+      "reciprocal_rank": 1.0,
+      "ndcg@5": 1.0,
+      "tools_called": [],
+      "expected_tools": [
+        "find_diseases_by_symptoms"
+      ],
+      "routing_recall": null,
+      "evidence_recall": null,
+      "gold_mention": null,
+      "judge_score": null,
+      "judge_verdict": "n/a",
+      "latency_ms": {
+        "end_to_end": 232.8,
+        "retrieval": 232.8
+      }
+    },
+    {
+      "id": 9,
+      "category": "disease_kg",
+      "subtype": "disease_by_symptoms",
+      "difficulty": "medium",
+      "retrieval_type": "semantic",
+      "question": "I've been feeling really sick lately, with nausea, vomiting, and a lot of pain in my stomach. I also feel weak and generally unwell. Could this be something serious?",
+      "gold": [
+        "Ethylene glycol poisoning-1"
+      ],
+      "store": "kg",
+      "score_mode": "rank",
+      "relevance_terms": [],
+      "ground_truth": "Nausea, vomiting, abdominal pain, General malaise, weakness",
+      "answer": "",
+      "retrieved_top5": [
+        "neuropathic pain",
+        "carpal tunnel syndrome",
+        "chronic inflammatory demyelinating polyneuropathy",
+        "magnesium deficiency",
+        "ovarian torsion"
+      ],
+      "rank": null,
+      "gold_found": false,
+      "retrieval_trace": [
+        {
+          "tool": "symptoms",
+          "store": "kg",
+          "latency_ms": 238.8,
+          "top5": [
+            "neuropathic pain",
+            "carpal tunnel syndrome",
+            "chronic inflammatory demyelinating polyneuropathy",
+            "magnesium deficiency",
+            "ovarian torsion"
+          ],
+          "gold_rank": null
+        }
+      ],
+      "recall@1": 0,
+      "recall@3": 0,
+      "recall@5": 0,
+      "reciprocal_rank": 0.0,
+      "ndcg@5": 0.0,
+      "tools_called": [],
+      "expected_tools": [
+        "find_diseases_by_symptoms"
+      ],
+      "routing_recall": null,
+      "evidence_recall": null,
+      "gold_mention": null,
+      "judge_score": null,
+      "judge_verdict": "n/a",
+      "latency_ms": {
+        "end_to_end": 238.8,
+        "retrieval": 238.8
+      }
+    },
+    {
+      "id": 10,
+      "category": "disease_kg",
+      "subtype": "disease_by_symptoms",
+      "difficulty": "medium",
+      "retrieval_type": "semantic",
+      "question": "I've been experiencing high blood pressure, chest pain or discomfort, shortness of breath, and fatigue. Could these symptoms point to any specific condition?",
+      "gold": [
+        "Hypertensive Heart Disease"
+      ],
+      "store": "kg",
+      "score_mode": "rank",
+      "relevance_terms": [],
+      "ground_truth": "High blood pressure, chest pain or discomfort, shortness of breath, and fatigue",
+      "answer": "",
+      "retrieved_top5": [
+        "hypertensive heart disease",
+        "thoracic aortic aneurysm",
+        "coronary atherosclerosis",
+        "abscess of the lung",
+        "hypertrophic obstructive cardiomyopathy"
+      ],
+      "rank": 1,
+      "gold_found": true,
+      "retrieval_trace": [
+        {
+          "tool": "symptoms",
+          "store": "kg",
+          "latency_ms": 229.3,
+          "top5": [
+            "hypertensive heart disease",
+            "thoracic aortic aneurysm",
+            "coronary atherosclerosis",
+            "abscess of the lung",
+            "hypertrophic obstructive cardiomyopathy"
+          ],
+          "gold_rank": 1
+        }
+      ],
+      "recall@1": 1,
+      "recall@3": 1,
+      "recall@5": 1,
+      "reciprocal_rank": 1.0,
+      "ndcg@5": 1.0,
+      "tools_called": [],
+      "expected_tools": [
+        "find_diseases_by_symptoms"
+      ],
+      "routing_recall": null,
+      "evidence_recall": null,
+      "gold_mention": null,
+      "judge_score": null,
+      "judge_verdict": "n/a",
+      "latency_ms": {
+        "end_to_end": 229.3,
+        "retrieval": 229.3
+      }
+    },
+    {
+      "id": 11,
+      "category": "disease_kg",
+      "subtype": "disease_by_symptoms",
+      "difficulty": "medium",
+      "retrieval_type": "semantic",
+      "question": "I've been noticing blood in my urine, going to the bathroom more often than usual, and having some pain in my lower abdomen. Could these be signs of something serious?",
+      "gold": [
+        "Bladder Cancer"
+      ],
+      "store": "kg",
+      "score_mode": "rank",
+      "relevance_terms": [],
+      "ground_truth": "Bladder Cancer",
+      "answer": "",
+      "retrieved_top5": [
+        "abdominal injury",
+        "von willebrand disease",
+        "bladder cancer",
+        "benign kidney cyst",
+        "kidney stone"
+      ],
+      "rank": 3,
+      "gold_found": true,
+      "retrieval_trace": [
+        {
+          "tool": "symptoms",
+          "store": "kg",
+          "latency_ms": 248.5,
+          "top5": [
+            "abdominal injury",
+            "von willebrand disease",
+            "bladder cancer",
+            "benign kidney cyst",
+            "kidney stone"
+          ],
+          "gold_rank": 3
+        }
+      ],
+      "recall@1": 0,
+      "recall@3": 1,
+      "recall@5": 1,
+      "reciprocal_rank": 0.333,
+      "ndcg@5": 0.5,
+      "tools_called": [],
+      "expected_tools": [
+        "find_diseases_by_symptoms"
+      ],
+      "routing_recall": null,
+      "evidence_recall": null,
+      "gold_mention": null,
+      "judge_score": null,
+      "judge_verdict": "n/a",
+      "latency_ms": {
+        "end_to_end": 248.5,
+        "retrieval": 248.5
+      }
+    },
+    {
+      "id": 12,
+      "category": "disease_kg",
+      "subtype": "disease_by_symptoms",
+      "difficulty": "medium",
+      "retrieval_type": "semantic",
+      "question": "I've been having vaginal bleeding, cramping, abdominal pain, nausea, and fatigue. Could these symptoms point to something specific?",
+      "gold": [
+        "Induced Abortion"
+      ],
+      "store": "kg",
+      "score_mode": "rank",
+      "relevance_terms": [],
+      "ground_truth": "Induced Abortion",
+      "answer": "",
+      "retrieved_top5": [
+        "atrophic vaginitis",
+        "placenta previa",
+        "threatened pregnancy",
+        "vaginal yeast infection",
+        "induced abortion"
+      ],
+      "rank": 5,
+      "gold_found": true,
+      "retrieval_trace": [
+        {
+          "tool": "symptoms",
+          "store": "kg",
+          "latency_ms": 241.9,
+          "top5": [
+            "atrophic vaginitis",
+            "placenta previa",
+            "threatened pregnancy",
+            "vaginal yeast infection",
+            "induced abortion"
+          ],
+          "gold_rank": 5
+        }
+      ],
+      "recall@1": 0,
+      "recall@3": 0,
+      "recall@5": 1,
+      "reciprocal_rank": 0.2,
+      "ndcg@5": 0.387,
+      "tools_called": [],
+      "expected_tools": [
+        "find_diseases_by_symptoms"
+      ],
+      "routing_recall": null,
+      "evidence_recall": null,
+      "gold_mention": null,
+      "judge_score": null,
+      "judge_verdict": "n/a",
+      "latency_ms": {
+        "end_to_end": 241.9,
+        "retrieval": 241.9
+      }
+    },
+    {
+      "id": 13,
+      "category": "disease_kg",
+      "subtype": "disease_by_symptoms",
+      "difficulty": "medium",
+      "retrieval_type": "semantic",
+      "question": "I'm experiencing abdominal pain or discomfort, having trouble swallowing, and sometimes feel like I'm choking or gagging. I also drool more than usual and feel nauseous. Could you tell me what might be causing these symptoms?",
+      "gold": [
+        "Foreign Body in the Gastrointestinal Tract"
+      ],
+      "store": "kg",
+      "score_mode": "rank",
+      "relevance_terms": [],
+      "ground_truth": "Foreign Body in the Gastrointestinal Tract",
+      "answer": "",
+      "retrieved_top5": [
+        "ovarian torsion",
+        "neuropathic pain",
+        "carpal tunnel syndrome",
+        "chronic inflammatory demyelinating polyneuropathy",
+        "foreign body in the gastrointestinal tract"
+      ],
+      "rank": 5,
+      "gold_found": true,
+      "retrieval_trace": [
+        {
+          "tool": "symptoms",
+          "store": "kg",
+          "latency_ms": 267.9,
+          "top5": [
+            "ovarian torsion",
+            "neuropathic pain",
+            "carpal tunnel syndrome",
+            "chronic inflammatory demyelinating polyneuropathy",
+            "foreign body in the gastrointestinal tract"
+          ],
+          "gold_rank": 5
+        }
+      ],
+      "recall@1": 0,
+      "recall@3": 0,
+      "recall@5": 1,
+      "reciprocal_rank": 0.2,
+      "ndcg@5": 0.387,
+      "tools_called": [],
+      "expected_tools": [
+        "find_diseases_by_symptoms"
+      ],
+      "routing_recall": null,
+      "evidence_recall": null,
+      "gold_mention": null,
+      "judge_score": null,
+      "judge_verdict": "n/a",
+      "latency_ms": {
+        "end_to_end": 267.9,
+        "retrieval": 267.9
+      }
+    },
+    {
+      "id": 14,
+      "category": "disease_kg",
+      "subtype": "disease_by_symptoms",
+      "difficulty": "medium",
+      "retrieval_type": "semantic",
+      "question": "I have a fever, chest pain, and when I cough, it's productive with foul-smelling sputum sometimes mixed with blood. Could you tell me what might be causing this?",
+      "gold": [
+        "Empyema"
+      ],
+      "store": "kg",
+      "score_mode": "rank",
+      "relevance_terms": [],
+      "ground_truth": "Empyema",
+      "answer": "",
+      "retrieved_top5": [
+        "pericarditis",
+        "abscess of the lung",
+        "empyema",
+        "neuromyelitis optica",
+        "flat feet"
+      ],
+      "rank": 3,
+      "gold_found": true,
+      "retrieval_trace": [
+        {
+          "tool": "symptoms",
+          "store": "kg",
+          "latency_ms": 257.1,
+          "top5": [
+            "pericarditis",
+            "abscess of the lung",
+            "empyema",
+            "neuromyelitis optica",
+            "flat feet"
+          ],
+          "gold_rank": 3
+        }
+      ],
+      "recall@1": 0,
+      "recall@3": 1,
+      "recall@5": 1,
+      "reciprocal_rank": 0.333,
+      "ndcg@5": 0.5,
+      "tools_called": [],
+      "expected_tools": [
+        "find_diseases_by_symptoms"
+      ],
+      "routing_recall": null,
+      "evidence_recall": null,
+      "gold_mention": null,
+      "judge_score": null,
+      "judge_verdict": "n/a",
+      "latency_ms": {
+        "end_to_end": 257.1,
+        "retrieval": 257.1
+      }
+    },
+    {
+      "id": 15,
+      "category": "disease_kg",
+      "subtype": "disease_by_symptoms",
+      "difficulty": "medium",
+      "retrieval_type": "semantic",
+      "question": "I'm having sharp chest pain that gets worse when I breathe deeply or lie down, and I also have a fever. Could you tell me what might be causing this?",
+      "gold": [
+        "Pericarditis"
+      ],
+      "store": "kg",
+      "score_mode": "rank",
+      "relevance_terms": [],
+      "ground_truth": "Chest pain that worsens with deep breaths or lying down, along with fever",
+      "answer": "",
+      "retrieved_top5": [
+        "ovarian torsion",
+        "foreign body in the gastrointestinal tract",
+        "esophageal cancer",
+        "coronary atherosclerosis",
+        "gastroesophageal reflux disease"
+      ],
+      "rank": null,
+      "gold_found": false,
+      "retrieval_trace": [
+        {
+          "tool": "symptoms",
+          "store": "kg",
+          "latency_ms": 246.2,
+          "top5": [
+            "ovarian torsion",
+            "foreign body in the gastrointestinal tract",
+            "esophageal cancer",
+            "coronary atherosclerosis",
+            "gastroesophageal reflux disease"
+          ],
+          "gold_rank": null
+        }
+      ],
+      "recall@1": 0,
+      "recall@3": 0,
+      "recall@5": 0,
+      "reciprocal_rank": 0.0,
+      "ndcg@5": 0.0,
+      "tools_called": [],
+      "expected_tools": [
+        "find_diseases_by_symptoms"
+      ],
+      "routing_recall": null,
+      "evidence_recall": null,
+      "gold_mention": null,
+      "judge_score": null,
+      "judge_verdict": "n/a",
+      "latency_ms": {
+        "end_to_end": 246.2,
+        "retrieval": 246.2
+      }
+    },
+    {
+      "id": 16,
+      "category": "disease_kg",
+      "subtype": "disease_by_symptoms",
+      "difficulty": "medium",
+      "retrieval_type": "semantic",
+      "question": "I've been feeling really tired lately, and my tummy hurts sometimes. My joints also ache, and I keep forgetting things. This could be something serious, right?",
+      "gold": [
+        "Lead Poisoning"
+      ],
+      "store": "kg",
+      "score_mode": "rank",
+      "relevance_terms": [],
+      "ground_truth": "Lead Poisoning",
+      "answer": "",
+      "retrieved_top5": [
+        "chronic headache",
+        "cannabis use disorder",
+        "neuropathic pain",
+        "carpal tunnel syndrome",
+        "ovarian torsion"
+      ],
+      "rank": null,
+      "gold_found": false,
+      "retrieval_trace": [
+        {
+          "tool": "symptoms",
+          "store": "kg",
+          "latency_ms": 258.5,
+          "top5": [
+            "chronic headache",
+            "cannabis use disorder",
+            "neuropathic pain",
+            "carpal tunnel syndrome",
+            "ovarian torsion"
+          ],
+          "gold_rank": null
+        }
+      ],
+      "recall@1": 0,
+      "recall@3": 0,
+      "recall@5": 0,
+      "reciprocal_rank": 0.0,
+      "ndcg@5": 0.0,
+      "tools_called": [],
+      "expected_tools": [
+        "find_diseases_by_symptoms"
+      ],
+      "routing_recall": null,
+      "evidence_recall": null,
+      "gold_mention": null,
+      "judge_score": null,
+      "judge_verdict": "n/a",
+      "latency_ms": {
+        "end_to_end": 258.5,
+        "retrieval": 258.5
+      }
+    },
+    {
+      "id": 17,
+      "category": "disease_kg",
+      "subtype": "disease_by_symptoms",
+      "difficulty": "medium",
+      "retrieval_type": "semantic",
+      "question": "I'm experiencing really bad pain, my elbow looks deformed, it's swollen, I can't move it at all, and I feel numbness or tingling in my hand and arm. Could this be something serious like a broken bone or severe injury?",
+      "gold": [
+        "Dislocation of the Elbow"
+      ],
+      "store": "kg",
+      "score_mode": "rank",
+      "relevance_terms": [],
+      "ground_truth": "Dislocation of the Elbow",
+      "answer": "",
+      "retrieved_top5": [
+        "neuropathic pain",
+        "carpal tunnel syndrome",
+        "chronic inflammatory demyelinating polyneuropathy",
+        "magnesium deficiency",
+        "ovarian torsion"
+      ],
+      "rank": null,
+      "gold_found": false,
+      "retrieval_trace": [
+        {
+          "tool": "symptoms",
+          "store": "kg",
+          "latency_ms": 312.5,
+          "top5": [
+            "neuropathic pain",
+            "carpal tunnel syndrome",
+            "chronic inflammatory demyelinating polyneuropathy",
+            "magnesium deficiency",
+            "ovarian torsion"
+          ],
+          "gold_rank": null
+        }
+      ],
+      "recall@1": 0,
+      "recall@3": 0,
+      "recall@5": 0,
+      "reciprocal_rank": 0.0,
+      "ndcg@5": 0.0,
+      "tools_called": [],
+      "expected_tools": [
+        "find_diseases_by_symptoms"
+      ],
+      "routing_recall": null,
+      "evidence_recall": null,
+      "gold_mention": null,
+      "judge_score": null,
+      "judge_verdict": "n/a",
+      "latency_ms": {
+        "end_to_end": 312.5,
+        "retrieval": 312.5
+      }
+    },
+    {
+      "id": 18,
+      "category": "disease_kg",
+      "subtype": "disease_by_symptoms",
+      "difficulty": "medium",
+      "retrieval_type": "semantic",
+      "question": "I've noticed my child has growth issues, facial features that seem different from other kids, delays in development, and seems to have trouble with learning new things. Could this be due to something specific?",
+      "gold": [
+        "Fetal Alcohol Syndrome"
+      ],
+      "store": "kg",
+      "score_mode": "rank",
+      "relevance_terms": [],
+      "ground_truth": "Growth deficiencies, facial abnormalities, developmental delays, intellectual disability",
+      "answer": "",
+      "retrieved_top5": [
+        "chalazion",
+        "chorioretinitis",
+        "corneal abrasion",
+        "corneal disorder",
+        "cornea infection"
+      ],
+      "rank": null,
+      "gold_found": false,
+      "retrieval_trace": [
+        {
+          "tool": "symptoms",
+          "store": "kg",
+          "latency_ms": 245.0,
+          "top5": [
+            "chalazion",
+            "chorioretinitis",
+            "corneal abrasion",
+            "corneal disorder",
+            "cornea infection"
+          ],
+          "gold_rank": null
+        }
+      ],
+      "recall@1": 0,
+      "recall@3": 0,
+      "recall@5": 0,
+      "reciprocal_rank": 0.0,
+      "ndcg@5": 0.0,
+      "tools_called": [],
+      "expected_tools": [
+        "find_diseases_by_symptoms"
+      ],
+      "routing_recall": null,
+      "evidence_recall": null,
+      "gold_mention": null,
+      "judge_score": null,
+      "judge_verdict": "n/a",
+      "latency_ms": {
+        "end_to_end": 245.0,
+        "retrieval": 245.0
+      }
+    },
+    {
+      "id": 19,
+      "category": "disease_kg",
+      "subtype": "disease_by_symptoms",
+      "difficulty": "medium",
+      "retrieval_type": "semantic",
+      "question": "I've been having these weird dizzy spells, my ears feel full and I keep hearing this ringing sound. Could that be because of some kind of ear problem?",
+      "gold": [
+        "Meniere Disease"
+      ],
+      "store": "kg",
+      "score_mode": "rank",
+      "relevance_terms": [],
+      "ground_truth": "Vertigo, hearing loss, tinnitus, ear fullness",
+      "answer": "",
+      "retrieved_top5": [
+        "mastoiditis",
+        "cholesteatoma",
+        "otosclerosis",
+        "meniere disease",
+        "chronic otitis media"
+      ],
+      "rank": 4,
+      "gold_found": true,
+      "retrieval_trace": [
+        {
+          "tool": "symptoms",
+          "store": "kg",
+          "latency_ms": 217.5,
+          "top5": [
+            "mastoiditis",
+            "cholesteatoma",
+            "otosclerosis",
+            "meniere disease",
+            "chronic otitis media"
+          ],
+          "gold_rank": 4
+        }
+      ],
+      "recall@1": 0,
+      "recall@3": 0,
+      "recall@5": 1,
+      "reciprocal_rank": 0.25,
+      "ndcg@5": 0.431,
+      "tools_called": [],
+      "expected_tools": [
+        "find_diseases_by_symptoms"
+      ],
+      "routing_recall": null,
+      "evidence_recall": null,
+      "gold_mention": null,
+      "judge_score": null,
+      "judge_verdict": "n/a",
+      "latency_ms": {
+        "end_to_end": 217.5,
+        "retrieval": 217.5
+      }
+    },
+    {
+      "id": 20,
+      "category": "disease_kg",
+      "subtype": "disease_by_symptoms",
+      "difficulty": "medium",
+      "retrieval_type": "semantic",
+      "question": "I've been experiencing chest pain along with swelling and tenderness where my ribs connect to my breastbone. Could this be something specific?",
+      "gold": [
+        "Tietze Syndrome"
+      ],
+      "store": "kg",
+      "score_mode": "rank",
+      "relevance_terms": [],
+      "ground_truth": "Chest pain, swelling and tenderness of the cartilage connecting the ribs to the breastbone",
+      "answer": "",
+      "retrieved_top5": [
+        "tietze syndrome",
+        "fracture of the rib",
+        "foreign body in the gastrointestinal tract",
+        "lung contusion",
+        "cellulitis"
+      ],
+      "rank": 1,
+      "gold_found": true,
+      "retrieval_trace": [
+        {
+          "tool": "symptoms",
+          "store": "kg",
+          "latency_ms": 233.1,
+          "top5": [
+            "tietze syndrome",
+            "fracture of the rib",
+            "foreign body in the gastrointestinal tract",
+            "lung contusion",
+            "cellulitis"
+          ],
+          "gold_rank": 1
+        }
+      ],
+      "recall@1": 1,
+      "recall@3": 1,
+      "recall@5": 1,
+      "reciprocal_rank": 1.0,
+      "ndcg@5": 1.0,
+      "tools_called": [],
+      "expected_tools": [
+        "find_diseases_by_symptoms"
+      ],
+      "routing_recall": null,
+      "evidence_recall": null,
+      "gold_mention": null,
+      "judge_score": null,
+      "judge_verdict": "n/a",
+      "latency_ms": {
+        "end_to_end": 233.1,
+        "retrieval": 233.1
+      }
+    },
+    {
+      "id": 21,
+      "category": "disease_kg",
+      "subtype": "disease_differential",
+      "difficulty": "hard",
+      "retrieval_type": "semantic",
+      "question": "I've been noticing my vision is blurry when looking at things far away, and I have to squint a lot or strain my eyes. Could this be something serious?",
+      "gold": [
+        "Myopia"
+      ],
+      "store": "kg",
+      "score_mode": "rank",
+      "relevance_terms": [],
+      "ground_truth": "Blurred distance vision, eyestrain, squinting",
+      "answer": "",
+      "retrieved_top5": [
+        "mucoepidermoid carcinoma",
+        "astigmatism",
+        "angle-closure glaucoma",
+        "corneal disorder",
+        "scleritis"
+      ],
+      "rank": null,
+      "gold_found": false,
+      "retrieval_trace": [
+        {
+          "tool": "symptoms",
+          "store": "kg",
+          "latency_ms": 224.8,
+          "top5": [
+            "mucoepidermoid carcinoma",
+            "astigmatism",
+            "angle-closure glaucoma",
+            "corneal disorder",
+            "scleritis"
+          ],
+          "gold_rank": null
+        }
+      ],
+      "recall@1": 0,
+      "recall@3": 0,
+      "recall@5": 0,
+      "reciprocal_rank": 0.0,
+      "ndcg@5": 0.0,
+      "tools_called": [],
+      "expected_tools": [
+        "find_diseases_by_symptoms"
+      ],
+      "routing_recall": null,
+      "evidence_recall": null,
+      "gold_mention": null,
+      "judge_score": null,
+      "judge_verdict": "n/a",
+      "latency_ms": {
+        "end_to_end": 224.8,
+        "retrieval": 224.8
+      }
+    },
+    {
+      "id": 22,
+      "category": "disease_kg",
+      "subtype": "disease_differential",
+      "difficulty": "hard",
+      "retrieval_type": "semantic",
+      "question": "I'm having really intense burning pain that feels like it's coming from my arm, there's swelling, and my skin temperature seems to be changing. Could this be something serious?",
+      "gold": [
+        "Complex Regional Pain Syndrome (CRPS)"
+      ],
+      "store": "kg",
+      "score_mode": "rank",
+      "relevance_terms": [],
+      "ground_truth": "Complex Regional Pain Syndrome (CRPS)",
+      "answer": "",
+      "retrieved_top5": [
+        "atrophic vaginitis",
+        "vulvodynia",
+        "complex regional pain syndrome",
+        "complex regional pain syndrome (crps)",
+        "neuropathic pain"
+      ],
+      "rank": 3,
+      "gold_found": true,
+      "retrieval_trace": [
+        {
+          "tool": "symptoms",
+          "store": "kg",
+          "latency_ms": 230.5,
+          "top5": [
+            "atrophic vaginitis",
+            "vulvodynia",
+            "complex regional pain syndrome",
+            "complex regional pain syndrome (crps)",
+            "neuropathic pain"
+          ],
+          "gold_rank": 3
+        }
+      ],
+      "recall@1": 0,
+      "recall@3": 1,
+      "recall@5": 1,
+      "reciprocal_rank": 0.333,
+      "ndcg@5": 0.5,
+      "tools_called": [],
+      "expected_tools": [
+        "find_diseases_by_symptoms"
+      ],
+      "routing_recall": null,
+      "evidence_recall": null,
+      "gold_mention": null,
+      "judge_score": null,
+      "judge_verdict": "n/a",
+      "latency_ms": {
+        "end_to_end": 230.5,
+        "retrieval": 230.5
+      }
+    },
+    {
+      "id": 23,
+      "category": "disease_kg",
+      "subtype": "disease_differential",
+      "difficulty": "hard",
+      "retrieval_type": "semantic",
+      "question": "I've been feeling some tingling, numbness, and pain in my hand and fingers. Could this be due to a specific condition?",
+      "gold": [
+        "Carpal Tunnel Syndrome"
+      ],
+      "store": "kg",
+      "score_mode": "rank",
+      "relevance_terms": [],
+      "ground_truth": "Tingling, numbness, and pain in the hand and fingers",
+      "answer": "",
+      "retrieved_top5": [
+        "ovarian torsion",
+        "carpal tunnel syndrome",
+        "magnesium deficiency",
+        "chronic inflammatory demyelinating polyneuropathy",
+        "adenoid cystic carcinoma"
+      ],
+      "rank": 2,
+      "gold_found": true,
+      "retrieval_trace": [
+        {
+          "tool": "symptoms",
+          "store": "kg",
+          "latency_ms": 228.5,
+          "top5": [
+            "ovarian torsion",
+            "carpal tunnel syndrome",
+            "magnesium deficiency",
+            "chronic inflammatory demyelinating polyneuropathy",
+            "adenoid cystic carcinoma"
+          ],
+          "gold_rank": 2
+        }
+      ],
+      "recall@1": 0,
+      "recall@3": 1,
+      "recall@5": 1,
+      "reciprocal_rank": 0.5,
+      "ndcg@5": 0.631,
+      "tools_called": [],
+      "expected_tools": [
+        "find_diseases_by_symptoms"
+      ],
+      "routing_recall": null,
+      "evidence_recall": null,
+      "gold_mention": null,
+      "judge_score": null,
+      "judge_verdict": "n/a",
+      "latency_ms": {
+        "end_to_end": 228.5,
+        "retrieval": 228.5
+      }
+    },
+    {
+      "id": 24,
+      "category": "disease_kg",
+      "subtype": "disease_differential",
+      "difficulty": "hard",
+      "retrieval_type": "semantic",
+      "question": "I've been feeling really drowsy, pretty relaxed, and not as anxious as usual. Could this be because of something I'm taking?",
+      "gold": [
+        "Benzodiazepine Use Disorder"
+      ],
+      "store": "kg",
+      "score_mode": "rank",
+      "relevance_terms": [],
+      "ground_truth": "Sedation, relaxation, reduced anxiety",
+      "answer": "",
+      "retrieved_top5": [
+        "huntington disease",
+        "ethylene glycol poisoning",
+        "infection of open wound",
+        "cirrhosis",
+        "gastroparesis"
+      ],
+      "rank": null,
+      "gold_found": false,
+      "retrieval_trace": [
+        {
+          "tool": "symptoms",
+          "store": "kg",
+          "latency_ms": 225.8,
+          "top5": [
+            "huntington disease",
+            "ethylene glycol poisoning",
+            "infection of open wound",
+            "cirrhosis",
+            "gastroparesis"
+          ],
+          "gold_rank": null
+        }
+      ],
+      "recall@1": 0,
+      "recall@3": 0,
+      "recall@5": 0,
+      "reciprocal_rank": 0.0,
+      "ndcg@5": 0.0,
+      "tools_called": [],
+      "expected_tools": [
+        "find_diseases_by_symptoms"
+      ],
+      "routing_recall": null,
+      "evidence_recall": null,
+      "gold_mention": null,
+      "judge_score": null,
+      "judge_verdict": "n/a",
+      "latency_ms": {
+        "end_to_end": 225.8,
+        "retrieval": 225.8
+      }
+    },
+    {
+      "id": 25,
+      "category": "disease_kg",
+      "subtype": "disease_differential",
+      "difficulty": "hard",
+      "retrieval_type": "semantic",
+      "question": "I'm having trouble with social interactions and I find it hard to communicate. I also have limited interests and repeat certain behaviors. Could this be due to a specific condition?",
+      "gold": [
+        "Autism"
+      ],
+      "store": "kg",
+      "score_mode": "rank",
+      "relevance_terms": [],
+      "ground_truth": "Challenges with social interaction, communication difficulties, restricted interests or repetitive behaviors",
+      "answer": "",
+      "retrieved_top5": [
+        "spondylitis",
+        "chalazion",
+        "cornea infection",
+        "corneal abrasion",
+        "chorioretinitis"
+      ],
+      "rank": null,
+      "gold_found": false,
+      "retrieval_trace": [
+        {
+          "tool": "symptoms",
+          "store": "kg",
+          "latency_ms": 241.0,
+          "top5": [
+            "spondylitis",
+            "chalazion",
+            "cornea infection",
+            "corneal abrasion",
+            "chorioretinitis"
+          ],
+          "gold_rank": null
+        }
+      ],
+      "recall@1": 0,
+      "recall@3": 0,
+      "recall@5": 0,
+      "reciprocal_rank": 0.0,
+      "ndcg@5": 0.0,
+      "tools_called": [],
+      "expected_tools": [
+        "find_diseases_by_symptoms"
+      ],
+      "routing_recall": null,
+      "evidence_recall": null,
+      "gold_mention": null,
+      "judge_score": null,
+      "judge_verdict": "n/a",
+      "latency_ms": {
+        "end_to_end": 241.0,
+        "retrieval": 241.0
+      }
+    },
+    {
+      "id": 26,
+      "category": "disease_kg",
+      "subtype": "disease_differential",
+      "difficulty": "hard",
+      "retrieval_type": "semantic",
+      "question": "I've been feeling really tired and weak lately, and I also get shortness of breath easily. Could this be a sign of something serious?",
+      "gold": [
+        "Anemia due to Malignancy"
+      ],
+      "store": "kg",
+      "score_mode": "rank",
+      "relevance_terms": [],
+      "ground_truth": "Fatigue, weakness, shortness of breath",
+      "answer": "",
+      "retrieved_top5": [
+        "vitamin b12 deficiency",
+        "hemolytic anemia",
+        "panic disorder",
+        "hypertensive heart disease",
+        "coronary atherosclerosis"
+      ],
+      "rank": null,
+      "gold_found": false,
+      "retrieval_trace": [
+        {
+          "tool": "symptoms",
+          "store": "kg",
+          "latency_ms": 267.7,
+          "top5": [
+            "vitamin b12 deficiency",
+            "hemolytic anemia",
+            "panic disorder",
+            "hypertensive heart disease",
+            "coronary atherosclerosis"
+          ],
+          "gold_rank": null
+        }
+      ],
+      "recall@1": 0,
+      "recall@3": 0,
+      "recall@5": 0,
+      "reciprocal_rank": 0.0,
+      "ndcg@5": 0.0,
+      "tools_called": [],
+      "expected_tools": [
+        "find_diseases_by_symptoms"
+      ],
+      "routing_recall": null,
+      "evidence_recall": null,
+      "gold_mention": null,
+      "judge_score": null,
+      "judge_verdict": "n/a",
+      "latency_ms": {
+        "end_to_end": 267.7,
+        "retrieval": 267.7
+      }
+    },
+    {
+      "id": 27,
+      "category": "disease_kg",
+      "subtype": "disease_differential",
+      "difficulty": "hard",
+      "retrieval_type": "semantic",
+      "question": "I've been experiencing joint pain, swelling, and tenderness lately. Could this be due to some kind of inflammation or injury?",
+      "gold": [
+        "Bursitis"
+      ],
+      "store": "kg",
+      "score_mode": "rank",
+      "relevance_terms": [],
+      "ground_truth": "Joint pain, swelling, and tenderness",
+      "answer": "",
+      "retrieved_top5": [
+        "thrombophlebitis",
+        "cellulitis",
+        "bone spur of the calcaneus",
+        "abdominal injury",
+        "sialolithiasis"
+      ],
+      "rank": null,
+      "gold_found": false,
+      "retrieval_trace": [
+        {
+          "tool": "symptoms",
+          "store": "kg",
+          "latency_ms": 260.7,
+          "top5": [
+            "thrombophlebitis",
+            "cellulitis",
+            "bone spur of the calcaneus",
+            "abdominal injury",
+            "sialolithiasis"
+          ],
+          "gold_rank": null
+        }
+      ],
+      "recall@1": 0,
+      "recall@3": 0,
+      "recall@5": 0,
+      "reciprocal_rank": 0.0,
+      "ndcg@5": 0.0,
+      "tools_called": [],
+      "expected_tools": [
+        "find_diseases_by_symptoms"
+      ],
+      "routing_recall": null,
+      "evidence_recall": null,
+      "gold_mention": null,
+      "judge_score": null,
+      "judge_verdict": "n/a",
+      "latency_ms": {
+        "end_to_end": 260.7,
+        "retrieval": 260.7
+      }
+    },
+    {
+      "id": 28,
+      "category": "disease_kg",
+      "subtype": "disease_differential",
+      "difficulty": "hard",
+      "retrieval_type": "semantic",
+      "question": "I've been feeling very drowsy, relaxed, and less anxious lately. Could you tell me what condition this might indicate?",
+      "gold": [
+        "Sedative, Hypnotic, or Anxiolytic Use Disorder"
+      ],
+      "store": "kg",
+      "score_mode": "rank",
+      "relevance_terms": [],
+      "ground_truth": "Sedative, Hypnotic, or Anxiolytic Use Disorder",
+      "answer": "",
+      "retrieved_top5": [
+        "ethylene glycol poisoning",
+        "infection of open wound",
+        "cannabis use disorder",
+        "neuropathic pain",
+        "gastroparesis"
+      ],
+      "rank": null,
+      "gold_found": false,
+      "retrieval_trace": [
+        {
+          "tool": "symptoms",
+          "store": "kg",
+          "latency_ms": 274.4,
+          "top5": [
+            "ethylene glycol poisoning",
+            "infection of open wound",
+            "cannabis use disorder",
+            "neuropathic pain",
+            "gastroparesis"
+          ],
+          "gold_rank": null
+        }
+      ],
+      "recall@1": 0,
+      "recall@3": 0,
+      "recall@5": 0,
+      "reciprocal_rank": 0.0,
+      "ndcg@5": 0.0,
+      "tools_called": [],
+      "expected_tools": [
+        "find_diseases_by_symptoms"
+      ],
+      "routing_recall": null,
+      "evidence_recall": null,
+      "gold_mention": null,
+      "judge_score": null,
+      "judge_verdict": "n/a",
+      "latency_ms": {
+        "end_to_end": 274.4,
+        "retrieval": 274.4
+      }
+    },
+    {
+      "id": 29,
+      "category": "disease_kg",
+      "subtype": "disease_differential",
+      "difficulty": "hard",
+      "retrieval_type": "semantic",
+      "question": "I've been having joint pain, stiffness, and swelling lately. Could this be due to some kind of condition?",
+      "gold": [
+        "Osteochondrosis"
+      ],
+      "store": "kg",
+      "score_mode": "rank",
+      "relevance_terms": [],
+      "ground_truth": "Joint pain, stiffness, and swelling",
+      "answer": "",
+      "retrieved_top5": [
+        "osteoarthritis",
+        "juvenile rheumatoid arthritis",
+        "osteochondrosis",
+        "arthritis",
+        "polymyalgia rheumatica"
+      ],
+      "rank": 3,
+      "gold_found": true,
+      "retrieval_trace": [
+        {
+          "tool": "symptoms",
+          "store": "kg",
+          "latency_ms": 306.3,
+          "top5": [
+            "osteoarthritis",
+            "juvenile rheumatoid arthritis",
+            "osteochondrosis",
+            "arthritis",
+            "polymyalgia rheumatica"
+          ],
+          "gold_rank": 3
+        }
+      ],
+      "recall@1": 0,
+      "recall@3": 1,
+      "recall@5": 1,
+      "reciprocal_rank": 0.333,
+      "ndcg@5": 0.5,
+      "tools_called": [],
+      "expected_tools": [
+        "find_diseases_by_symptoms"
+      ],
+      "routing_recall": null,
+      "evidence_recall": null,
+      "gold_mention": null,
+      "judge_score": null,
+      "judge_verdict": "n/a",
+      "latency_ms": {
+        "end_to_end": 306.3,
+        "retrieval": 306.3
+      }
+    },
+    {
+      "id": 30,
+      "category": "disease_kg",
+      "subtype": "disease_differential",
+      "difficulty": "hard",
+      "retrieval_type": "semantic",
+      "question": "I'm experiencing pain around my surgical site, some discomfort, and swelling. Could you tell me what condition this might be due to?",
+      "gold": [
+        "Pain after an Operation"
+      ],
+      "store": "kg",
+      "score_mode": "rank",
+      "relevance_terms": [],
+      "ground_truth": "Pain after an Operation",
+      "answer": "",
+      "retrieved_top5": [
+        "ovarian torsion",
+        "cirrhosis",
+        "neuropathic pain",
+        "carpal tunnel syndrome",
+        "pain after an operation"
+      ],
+      "rank": 5,
+      "gold_found": true,
+      "retrieval_trace": [
+        {
+          "tool": "symptoms",
+          "store": "kg",
+          "latency_ms": 278.0,
+          "top5": [
+            "ovarian torsion",
+            "cirrhosis",
+            "neuropathic pain",
+            "carpal tunnel syndrome",
+            "pain after an operation"
+          ],
+          "gold_rank": 5
+        }
+      ],
+      "recall@1": 0,
+      "recall@3": 0,
+      "recall@5": 1,
+      "reciprocal_rank": 0.2,
+      "ndcg@5": 0.387,
+      "tools_called": [],
+      "expected_tools": [
+        "find_diseases_by_symptoms"
+      ],
+      "routing_recall": null,
+      "evidence_recall": null,
+      "gold_mention": null,
+      "judge_score": null,
+      "judge_verdict": "n/a",
+      "latency_ms": {
+        "end_to_end": 278.0,
+        "retrieval": 278.0
+      }
+    },
+    {
+      "id": 31,
+      "category": "disease_kg",
+      "subtype": "chronic",
+      "difficulty": "easy",
+      "retrieval_type": "known_item",
+      "question": "Is Neuromyelitis Optica a long-term condition?",
+      "gold": [
+        "Neuromyelitis Optica"
+      ],
+      "store": "kg",
+      "score_mode": "rank",
+      "relevance_terms": [],
+      "ground_truth": "True",
+      "answer": "",
+      "retrieved_top5": [
+        "neuromyelitis optica"
+      ],
+      "rank": 1,
+      "gold_found": true,
+      "retrieval_trace": [
+        {
+          "tool": "disease_name",
+          "store": "kg",
+          "latency_ms": 202.2,
+          "top5": [
+            "neuromyelitis optica"
+          ],
+          "gold_rank": 1
+        }
+      ],
+      "recall@1": 1,
+      "recall@3": 1,
+      "recall@5": 1,
+      "reciprocal_rank": 1.0,
+      "ndcg@5": 1.0,
+      "tools_called": [],
+      "expected_tools": [
+        "get_disease_details"
+      ],
+      "routing_recall": null,
+      "evidence_recall": null,
+      "gold_mention": null,
+      "judge_score": null,
+      "judge_verdict": "n/a",
+      "latency_ms": {
+        "end_to_end": 202.2,
+        "retrieval": 202.2
+      }
+    },
+    {
+      "id": 32,
+      "category": "disease_kg",
+      "subtype": "treatment_of_disease",
+      "difficulty": "easy",
+      "retrieval_type": "known_item",
+      "question": "What are the treatment options for esophageal varices?",
+      "gold": [
+        "Esophageal Varices"
+      ],
+      "store": "kg",
+      "score_mode": "rank",
+      "relevance_terms": [],
+      "ground_truth": "Medications (beta-blockers, vasoconstrictors), endoscopic therapies, band ligation, transjugular intrahepatic portosystemic shunt (TIPS), surgical interventions",
+      "answer": "",
+      "retrieved_top5": [
+        "esophageal varices"
+      ],
+      "rank": 1,
+      "gold_found": true,
+      "retrieval_trace": [
+        {
+          "tool": "disease_name",
+          "store": "kg",
+          "latency_ms": 197.2,
+          "top5": [
+            "esophageal varices"
+          ],
+          "gold_rank": 1
+        }
+      ],
+      "recall@1": 1,
+      "recall@3": 1,
+      "recall@5": 1,
+      "reciprocal_rank": 1.0,
+      "ndcg@5": 1.0,
+      "tools_called": [],
+      "expected_tools": [
+        "get_disease_details"
+      ],
+      "routing_recall": null,
+      "evidence_recall": null,
+      "gold_mention": null,
+      "judge_score": null,
+      "judge_verdict": "n/a",
+      "latency_ms": {
+        "end_to_end": 197.2,
+        "retrieval": 197.2
+      }
+    },
+    {
+      "id": 33,
+      "category": "disease_kg",
+      "subtype": "contagious",
+      "difficulty": "easy",
+      "retrieval_type": "known_item",
+      "question": "Is Psoriasis contagious?",
+      "gold": [
+        "Psoriasis"
+      ],
+      "store": "kg",
+      "score_mode": "rank",
+      "relevance_terms": [],
+      "ground_truth": "False",
+      "answer": "",
+      "retrieved_top5": [
+        "psoriasis"
+      ],
+      "rank": 1,
+      "gold_found": true,
+      "retrieval_trace": [
+        {
+          "tool": "disease_name",
+          "store": "kg",
+          "latency_ms": 204.8,
+          "top5": [
+            "psoriasis"
+          ],
+          "gold_rank": 1
+        }
+      ],
+      "recall@1": 1,
+      "recall@3": 1,
+      "recall@5": 1,
+      "reciprocal_rank": 1.0,
+      "ndcg@5": 1.0,
+      "tools_called": [],
+      "expected_tools": [
+        "get_disease_details"
+      ],
+      "routing_recall": null,
+      "evidence_recall": null,
+      "gold_mention": null,
+      "judge_score": null,
+      "judge_verdict": "n/a",
+      "latency_ms": {
+        "end_to_end": 204.8,
+        "retrieval": 204.8
+      }
+    },
+    {
+      "id": 34,
+      "category": "disease_kg",
+      "subtype": "treatment_of_disease",
+      "difficulty": "easy",
+      "retrieval_type": "known_item",
+      "question": "What are some ways to treat my primary insomnia?",
+      "gold": [
+        "Primary Insomnia"
+      ],
+      "store": "kg",
+      "score_mode": "rank",
+      "relevance_terms": [],
+      "ground_truth": "Cognitive-behavioral therapy for insomnia (CBT-I), sleep hygiene practices (such as maintaining a regular sleep schedule, creating a comfortable sleep environment), relaxation techniques, stimulus control techniques (such as limiting bed activities to sleep only), sleep restriction therapy, medications for insomnia (such as sedative-hypnotics, melatonin agonists)",
+      "answer": "",
+      "retrieved_top5": [
+        "primary insomnia"
+      ],
+      "rank": 1,
+      "gold_found": true,
+      "retrieval_trace": [
+        {
+          "tool": "disease_name",
+          "store": "kg",
+          "latency_ms": 211.8,
+          "top5": [
+            "primary insomnia"
+          ],
+          "gold_rank": 1
+        }
+      ],
+      "recall@1": 1,
+      "recall@3": 1,
+      "recall@5": 1,
+      "reciprocal_rank": 1.0,
+      "ndcg@5": 1.0,
+      "tools_called": [],
+      "expected_tools": [
+        "get_disease_details"
+      ],
+      "routing_recall": null,
+      "evidence_recall": null,
+      "gold_mention": null,
+      "judge_score": null,
+      "judge_verdict": "n/a",
+      "latency_ms": {
+        "end_to_end": 211.8,
+        "retrieval": 211.8
+      }
+    },
+    {
+      "id": 35,
+      "category": "disease_kg",
+      "subtype": "symptoms_of_disease",
+      "difficulty": "easy",
+      "retrieval_type": "known_item",
+      "question": "What are the symptoms of back pain related to being pregnant?",
+      "gold": [
+        "Pregnancy-Related Back Pain"
+      ],
+      "store": "kg",
+      "score_mode": "rank",
+      "relevance_terms": [],
+      "ground_truth": "Lower back pain, discomfort in the pelvic area",
+      "answer": "",
+      "retrieved_top5": [],
+      "rank": null,
+      "gold_found": false,
+      "retrieval_trace": [
+        {
+          "tool": "disease_name",
+          "store": "kg",
+          "latency_ms": 1.7,
+          "top5": [],
+          "gold_rank": null
+        }
+      ],
+      "recall@1": 0,
+      "recall@3": 0,
+      "recall@5": 0,
+      "reciprocal_rank": 0.0,
+      "ndcg@5": 0.0,
+      "tools_called": [],
+      "expected_tools": [
+        "get_disease_details"
+      ],
+      "routing_recall": null,
+      "evidence_recall": null,
+      "gold_mention": null,
+      "judge_score": null,
+      "judge_verdict": "n/a",
+      "latency_ms": {
+        "end_to_end": 1.7,
+        "retrieval": 1.7
+      }
+    },
+    {
+      "id": 36,
+      "category": "disease_kg",
+      "subtype": "chronic",
+      "difficulty": "easy",
+      "retrieval_type": "known_item",
+      "question": "Is hypergammaglobulinemia a long-lasting condition?",
+      "gold": [
+        "Hypergammaglobulinemia"
+      ],
+      "store": "kg",
+      "score_mode": "rank",
+      "relevance_terms": [],
+      "ground_truth": "True",
+      "answer": "",
+      "retrieved_top5": [
+        "hypergammaglobulinemia"
+      ],
+      "rank": 1,
+      "gold_found": true,
+      "retrieval_trace": [
+        {
+          "tool": "disease_name",
+          "store": "kg",
+          "latency_ms": 196.6,
+          "top5": [
+            "hypergammaglobulinemia"
+          ],
+          "gold_rank": 1
+        }
+      ],
+      "recall@1": 1,
+      "recall@3": 1,
+      "recall@5": 1,
+      "reciprocal_rank": 1.0,
+      "ndcg@5": 1.0,
+      "tools_called": [],
+      "expected_tools": [
+        "get_disease_details"
+      ],
+      "routing_recall": null,
+      "evidence_recall": null,
+      "gold_mention": null,
+      "judge_score": null,
+      "judge_verdict": "n/a",
+      "latency_ms": {
+        "end_to_end": 196.6,
+        "retrieval": 196.6
+      }
+    },
+    {
+      "id": 37,
+      "category": "disease_kg",
+      "subtype": "contagious",
+      "difficulty": "easy",
+      "retrieval_type": "known_item",
+      "question": "Is a Cold Sore contagious?",
+      "gold": [
+        "Cold Sore"
+      ],
+      "store": "kg",
+      "score_mode": "rank",
+      "relevance_terms": [],
+      "ground_truth": "False",
+      "answer": "",
+      "retrieved_top5": [
+        "cold sore"
+      ],
+      "rank": 1,
+      "gold_found": true,
+      "retrieval_trace": [
+        {
+          "tool": "disease_name",
+          "store": "kg",
+          "latency_ms": 213.0,
+          "top5": [
+            "cold sore"
+          ],
+          "gold_rank": 1
+        }
+      ],
+      "recall@1": 1,
+      "recall@3": 1,
+      "recall@5": 1,
+      "reciprocal_rank": 1.0,
+      "ndcg@5": 1.0,
+      "tools_called": [],
+      "expected_tools": [
+        "get_disease_details"
+      ],
+      "routing_recall": null,
+      "evidence_recall": null,
+      "gold_mention": null,
+      "judge_score": null,
+      "judge_verdict": "n/a",
+      "latency_ms": {
+        "end_to_end": 213.0,
+        "retrieval": 213.0
+      }
+    },
+    {
+      "id": 38,
+      "category": "disease_kg",
+      "subtype": "contagious",
+      "difficulty": "easy",
+      "retrieval_type": "known_item",
+      "question": "Is dermatitis due to sun exposure contagious?",
+      "gold": [
+        "Dermatitis due to Sun Exposure"
+      ],
+      "store": "kg",
+      "score_mode": "rank",
+      "relevance_terms": [],
+      "ground_truth": "False",
+      "answer": "",
+      "retrieved_top5": [
+        "dermatitis due to sun exposure"
+      ],
+      "rank": 1,
+      "gold_found": true,
+      "retrieval_trace": [
+        {
+          "tool": "disease_name",
+          "store": "kg",
+          "latency_ms": 200.4,
+          "top5": [
+            "dermatitis due to sun exposure"
+          ],
+          "gold_rank": 1
+        }
+      ],
+      "recall@1": 1,
+      "recall@3": 1,
+      "recall@5": 1,
+      "reciprocal_rank": 1.0,
+      "ndcg@5": 1.0,
+      "tools_called": [],
+      "expected_tools": [
+        "get_disease_details"
+      ],
+      "routing_recall": null,
+      "evidence_recall": null,
+      "gold_mention": null,
+      "judge_score": null,
+      "judge_verdict": "n/a",
+      "latency_ms": {
+        "end_to_end": 200.4,
+        "retrieval": 200.4
+      }
+    },
+    {
+      "id": 39,
+      "category": "disease_kg",
+      "subtype": "chronic",
+      "difficulty": "easy",
+      "retrieval_type": "known_item",
+      "question": "Is ethylene glycol poisoning a long-lasting condition?",
+      "gold": [
+        "Ethylene glycol poisoning-2"
+      ],
+      "store": "kg",
+      "score_mode": "rank",
+      "relevance_terms": [],
+      "ground_truth": "False",
+      "answer": "",
+      "retrieved_top5": [
+        "ethylene glycol poisoning",
+        "ethylene glycol poisoning",
+        "ethylene glycol poisoning"
+      ],
+      "rank": 1,
+      "gold_found": true,
+      "retrieval_trace": [
+        {
+          "tool": "disease_name",
+          "store": "kg",
+          "latency_ms": 207.9,
+          "top5": [
+            "ethylene glycol poisoning",
+            "ethylene glycol poisoning",
+            "ethylene glycol poisoning"
+          ],
+          "gold_rank": 1
+        }
+      ],
+      "recall@1": 1,
+      "recall@3": 1,
+      "recall@5": 1,
+      "reciprocal_rank": 1.0,
+      "ndcg@5": 1.0,
+      "tools_called": [],
+      "expected_tools": [
+        "get_disease_details"
+      ],
+      "routing_recall": null,
+      "evidence_recall": null,
+      "gold_mention": null,
+      "judge_score": null,
+      "judge_verdict": "n/a",
+      "latency_ms": {
+        "end_to_end": 207.9,
+        "retrieval": 207.9
+      }
+    },
+    {
+      "id": 40,
+      "category": "disease_kg",
+      "subtype": "chronic",
+      "difficulty": "easy",
+      "retrieval_type": "known_item",
+      "question": "Is myositis a long-lasting condition?",
+      "gold": [
+        "Myositis"
+      ],
+      "store": "kg",
+      "score_mode": "rank",
+      "relevance_terms": [],
+      "ground_truth": "True",
+      "answer": "",
+      "retrieved_top5": [
+        "myositis"
+      ],
+      "rank": 1,
+      "gold_found": true,
+      "retrieval_trace": [
+        {
+          "tool": "disease_name",
+          "store": "kg",
+          "latency_ms": 214.6,
+          "top5": [
+            "myositis"
+          ],
+          "gold_rank": 1
+        }
+      ],
+      "recall@1": 1,
+      "recall@3": 1,
+      "recall@5": 1,
+      "reciprocal_rank": 1.0,
+      "ndcg@5": 1.0,
+      "tools_called": [],
+      "expected_tools": [
+        "get_disease_details"
+      ],
+      "routing_recall": null,
+      "evidence_recall": null,
+      "gold_mention": null,
+      "judge_score": null,
+      "judge_verdict": "n/a",
+      "latency_ms": {
+        "end_to_end": 214.6,
+        "retrieval": 214.6
+      }
+    },
+    {
+      "id": 41,
+      "category": "medicine_vector",
+      "subtype": "manufacturer_price",
+      "difficulty": "easy",
+      "retrieval_type": "known_item",
+      "question": "Who manufactures Clingen Forte Vaginal Capsules and what is the price?",
+      "gold": [
+        "Clingen Forte  Vaginal Capsule"
+      ],
+      "store": "vector",
+      "score_mode": "rank",
+      "relevance_terms": [],
+      "ground_truth": "Aristo Pharmaceuticals Pvt Ltd; 123.25",
+      "answer": "",
+      "retrieved_top5": [
+        "Clingen Forte  Vaginal Capsule"
+      ],
+      "rank": 1,
+      "gold_found": true,
+      "retrieval_trace": [
+        {
+          "tool": "medicine_name",
+          "store": "vector",
+          "latency_ms": 0.1,
+          "top5": [
+            "Clingen Forte  Vaginal Capsule"
+          ],
+          "gold_rank": 1
+        }
+      ],
+      "recall@1": 1,
+      "recall@3": 1,
+      "recall@5": 1,
+      "reciprocal_rank": 1.0,
+      "ndcg@5": 1.0,
+      "tools_called": [],
+      "expected_tools": [
+        "get_medicine_details"
+      ],
+      "routing_recall": null,
+      "evidence_recall": null,
+      "gold_mention": null,
+      "judge_score": null,
+      "judge_verdict": "n/a",
+      "latency_ms": {
+        "end_to_end": 0.1,
+        "retrieval": 0.1
+      }
+    },
+    {
+      "id": 42,
+      "category": "medicine_vector",
+      "subtype": "side_effects",
+      "difficulty": "easy",
+      "retrieval_type": "known_item",
+      "question": "What are the possible side effects of this injection?",
+      "gold": [
+        "Busarlin 7mg Injection"
+      ],
+      "store": "vector",
+      "score_mode": "rank",
+      "relevance_terms": [],
+      "ground_truth": "Decreased libido, Testicular atrophy, Increased sweating, Fatigue, Muscle weakness, Bone pain, Erectile dysfunction, Injection site pain",
+      "answer": "",
+      "retrieved_top5": [
+        "Busarlin 7mg Injection"
+      ],
+      "rank": 1,
+      "gold_found": true,
+      "retrieval_trace": [
+        {
+          "tool": "medicine_name",
+          "store": "vector",
+          "latency_ms": 0.1,
+          "top5": [
+            "Busarlin 7mg Injection"
+          ],
+          "gold_rank": 1
+        }
+      ],
+      "recall@1": 1,
+      "recall@3": 1,
+      "recall@5": 1,
+      "reciprocal_rank": 1.0,
+      "ndcg@5": 1.0,
+      "tools_called": [],
+      "expected_tools": [
+        "get_medicine_details"
+      ],
+      "routing_recall": null,
+      "evidence_recall": null,
+      "gold_mention": null,
+      "judge_score": null,
+      "judge_verdict": "n/a",
+      "latency_ms": {
+        "end_to_end": 0.1,
+        "retrieval": 0.1
+      }
+    },
+    {
+      "id": 43,
+      "category": "medicine_vector",
+      "subtype": "side_effects",
+      "difficulty": "easy",
+      "retrieval_type": "known_item",
+      "question": "What are the possible side effects someone might experience from taking Clokeran 5mg Tablet?",
+      "gold": [
+        "Clokeran 5mg Tablet"
+      ],
+      "store": "vector",
+      "score_mode": "rank",
+      "relevance_terms": [],
+      "ground_truth": "Anemia, decreased blood cells (red cells, white cells, and platelets), decreased white blood cell count (neutrophils), decreased white blood cell count, bone marrow suppression, nausea, vomiting, diarrhea, mouth ulcer",
+      "answer": "",
+      "retrieved_top5": [
+        "Clokeran 5mg Tablet"
+      ],
+      "rank": 1,
+      "gold_found": true,
+      "retrieval_trace": [
+        {
+          "tool": "medicine_name",
+          "store": "vector",
+          "latency_ms": 0.1,
+          "top5": [
+            "Clokeran 5mg Tablet"
+          ],
+          "gold_rank": 1
+        }
+      ],
+      "recall@1": 1,
+      "recall@3": 1,
+      "recall@5": 1,
+      "reciprocal_rank": 1.0,
+      "ndcg@5": 1.0,
+      "tools_called": [],
+      "expected_tools": [
+        "get_medicine_details"
+      ],
+      "routing_recall": null,
+      "evidence_recall": null,
+      "gold_mention": null,
+      "judge_score": null,
+      "judge_verdict": "n/a",
+      "latency_ms": {
+        "end_to_end": 0.1,
+        "retrieval": 0.1
+      }
+    },
+    {
+      "id": 44,
+      "category": "medicine_vector",
+      "subtype": "side_effects",
+      "difficulty": "easy",
+      "retrieval_type": "known_item",
+      "question": "What are some possible side effects of taking Rizact 5 Tablet?",
+      "gold": [
+        "Rizact 5 Tablet"
+      ],
+      "store": "vector",
+      "score_mode": "rank",
+      "relevance_terms": [],
+      "ground_truth": "Dizziness, Dryness in mouth, Heaviness, Jaw pain, Nausea, Neck pain, Sleepiness, Throat pain, Weakness",
+      "answer": "",
+      "retrieved_top5": [
+        "Rizact 5 Tablet"
+      ],
+      "rank": 1,
+      "gold_found": true,
+      "retrieval_trace": [
+        {
+          "tool": "medicine_name",
+          "store": "vector",
+          "latency_ms": 0.1,
+          "top5": [
+            "Rizact 5 Tablet"
+          ],
+          "gold_rank": 1
+        }
+      ],
+      "recall@1": 1,
+      "recall@3": 1,
+      "recall@5": 1,
+      "reciprocal_rank": 1.0,
+      "ndcg@5": 1.0,
+      "tools_called": [],
+      "expected_tools": [
+        "get_medicine_details"
+      ],
+      "routing_recall": null,
+      "evidence_recall": null,
+      "gold_mention": null,
+      "judge_score": null,
+      "judge_verdict": "n/a",
+      "latency_ms": {
+        "end_to_end": 0.1,
+        "retrieval": 0.1
+      }
+    },
+    {
+      "id": 45,
+      "category": "medicine_vector",
+      "subtype": "manufacturer_price",
+      "difficulty": "easy",
+      "retrieval_type": "known_item",
+      "question": "Who manufactures Oxydrops Infant 0.01% Nasal Drops and what is its price?",
+      "gold": [
+        "Oxydrops Infant 0.01% Nasal Drops"
+      ],
+      "store": "vector",
+      "score_mode": "rank",
+      "relevance_terms": [],
+      "ground_truth": "Chethana Pharmaceuticals\n49",
+      "answer": "",
+      "retrieved_top5": [
+        "Oxydrops Infant 0.01% Nasal Drops"
+      ],
+      "rank": 1,
+      "gold_found": true,
+      "retrieval_trace": [
+        {
+          "tool": "medicine_name",
+          "store": "vector",
+          "latency_ms": 0.1,
+          "top5": [
+            "Oxydrops Infant 0.01% Nasal Drops"
+          ],
+          "gold_rank": 1
+        }
+      ],
+      "recall@1": 1,
+      "recall@3": 1,
+      "recall@5": 1,
+      "reciprocal_rank": 1.0,
+      "ndcg@5": 1.0,
+      "tools_called": [],
+      "expected_tools": [
+        "get_medicine_details"
+      ],
+      "routing_recall": null,
+      "evidence_recall": null,
+      "gold_mention": null,
+      "judge_score": null,
+      "judge_verdict": "n/a",
+      "latency_ms": {
+        "end_to_end": 0.1,
+        "retrieval": 0.1
+      }
+    },
+    {
+      "id": 46,
+      "category": "medicine_vector",
+      "subtype": "manufacturer_price",
+      "difficulty": "easy",
+      "retrieval_type": "known_item",
+      "question": "Who makes the Tidilan 20 Tablet and how much does it cost?",
+      "gold": [
+        "Tidilan 20 Tablet"
+      ],
+      "store": "vector",
+      "score_mode": "rank",
+      "relevance_terms": [],
+      "ground_truth": "Juggat Pharma manufactures the Tidilan 20 Tablet and its price is 103.44.",
+      "answer": "",
+      "retrieved_top5": [
+        "Tidilan 20 Tablet"
+      ],
+      "rank": 1,
+      "gold_found": true,
+      "retrieval_trace": [
+        {
+          "tool": "medicine_name",
+          "store": "vector",
+          "latency_ms": 0.3,
+          "top5": [
+            "Tidilan 20 Tablet"
+          ],
+          "gold_rank": 1
+        }
+      ],
+      "recall@1": 1,
+      "recall@3": 1,
+      "recall@5": 1,
+      "reciprocal_rank": 1.0,
+      "ndcg@5": 1.0,
+      "tools_called": [],
+      "expected_tools": [
+        "get_medicine_details"
+      ],
+      "routing_recall": null,
+      "evidence_recall": null,
+      "gold_mention": null,
+      "judge_score": null,
+      "judge_verdict": "n/a",
+      "latency_ms": {
+        "end_to_end": 0.3,
+        "retrieval": 0.3
+      }
+    },
+    {
+      "id": 47,
+      "category": "medicine_vector",
+      "subtype": "side_effects",
+      "difficulty": "easy",
+      "retrieval_type": "known_item",
+      "question": "What are the possible side effects of taking Doran-O 4mg/50mg Injection?",
+      "gold": [
+        "Doran-O 4mg/50mg Injection"
+      ],
+      "store": "vector",
+      "score_mode": "rank",
+      "relevance_terms": [],
+      "ground_truth": "Diarrhea, Constipation, Headache, Drowsiness, Fatigue, Muscle pain, Dryness in mouth, Flushing of skin",
+      "answer": "",
+      "retrieved_top5": [
+        "Doran-O 4mg/50mg Injection"
+      ],
+      "rank": 1,
+      "gold_found": true,
+      "retrieval_trace": [
+        {
+          "tool": "medicine_name",
+          "store": "vector",
+          "latency_ms": 0.2,
+          "top5": [
+            "Doran-O 4mg/50mg Injection"
+          ],
+          "gold_rank": 1
+        }
+      ],
+      "recall@1": 1,
+      "recall@3": 1,
+      "recall@5": 1,
+      "reciprocal_rank": 1.0,
+      "ndcg@5": 1.0,
+      "tools_called": [],
+      "expected_tools": [
+        "get_medicine_details"
+      ],
+      "routing_recall": null,
+      "evidence_recall": null,
+      "gold_mention": null,
+      "judge_score": null,
+      "judge_verdict": "n/a",
+      "latency_ms": {
+        "end_to_end": 0.2,
+        "retrieval": 0.2
+      }
+    },
+    {
+      "id": 48,
+      "category": "medicine_vector",
+      "subtype": "side_effects",
+      "difficulty": "easy",
+      "retrieval_type": "known_item",
+      "question": "What are some possible side effects someone might experience from taking Valgan Tablet?",
+      "gold": [
+        "Valgan Tablet"
+      ],
+      "store": "vector",
+      "score_mode": "rank",
+      "relevance_terms": [],
+      "ground_truth": "Diarrhea, Fever, Vomiting, Anemia (low number of red blood cells), Decreased white blood cell count, Low blood platelets",
+      "answer": "",
+      "retrieved_top5": [
+        "Valgan Tablet"
+      ],
+      "rank": 1,
+      "gold_found": true,
+      "retrieval_trace": [
+        {
+          "tool": "medicine_name",
+          "store": "vector",
+          "latency_ms": 0.4,
+          "top5": [
+            "Valgan Tablet"
+          ],
+          "gold_rank": 1
+        }
+      ],
+      "recall@1": 1,
+      "recall@3": 1,
+      "recall@5": 1,
+      "reciprocal_rank": 1.0,
+      "ndcg@5": 1.0,
+      "tools_called": [],
+      "expected_tools": [
+        "get_medicine_details"
+      ],
+      "routing_recall": null,
+      "evidence_recall": null,
+      "gold_mention": null,
+      "judge_score": null,
+      "judge_verdict": "n/a",
+      "latency_ms": {
+        "end_to_end": 0.4,
+        "retrieval": 0.4
+      }
+    },
+    {
+      "id": 49,
+      "category": "medicine_vector",
+      "subtype": "side_effects",
+      "difficulty": "easy",
+      "retrieval_type": "known_item",
+      "question": "What are the possible side effects of taking Saaz -DS Tablet DR?",
+      "gold": [
+        "Saaz -DS Tablet DR"
+      ],
+      "store": "vector",
+      "score_mode": "rank",
+      "relevance_terms": [],
+      "ground_truth": "Diarrhea, Gastrointestinal discomfort, Headache, Loss of appetite, Nausea, Oligospermia (low sperm count), Vomiting, Weight loss",
+      "answer": "",
+      "retrieved_top5": [
+        "Saaz -DS Tablet DR"
+      ],
+      "rank": 1,
+      "gold_found": true,
+      "retrieval_trace": [
+        {
+          "tool": "medicine_name",
+          "store": "vector",
+          "latency_ms": 0.2,
+          "top5": [
+            "Saaz -DS Tablet DR"
+          ],
+          "gold_rank": 1
+        }
+      ],
+      "recall@1": 1,
+      "recall@3": 1,
+      "recall@5": 1,
+      "reciprocal_rank": 1.0,
+      "ndcg@5": 1.0,
+      "tools_called": [],
+      "expected_tools": [
+        "get_medicine_details"
+      ],
+      "routing_recall": null,
+      "evidence_recall": null,
+      "gold_mention": null,
+      "judge_score": null,
+      "judge_verdict": "n/a",
+      "latency_ms": {
+        "end_to_end": 0.2,
+        "retrieval": 0.2
+      }
+    },
+    {
+      "id": 50,
+      "category": "medicine_vector",
+      "subtype": "drug_interactions",
+      "difficulty": "easy",
+      "retrieval_type": "known_item",
+      "question": "Which medications does V-Stat 100mcg Injection interact with according to the source data?",
+      "gold": [
+        "V-Stat 100mcg Injection"
+      ],
+      "store": "vector",
+      "score_mode": "rank",
+      "relevance_terms": [],
+      "ground_truth": "Acarbose, Chlorpropamide, Glibenclamide, Gliclazide",
+      "answer": "",
+      "retrieved_top5": [
+        "V-Stat 100mcg Injection"
+      ],
+      "rank": 1,
+      "gold_found": true,
+      "retrieval_trace": [
+        {
+          "tool": "medicine_name",
+          "store": "vector",
+          "latency_ms": 0.5,
+          "top5": [
+            "V-Stat 100mcg Injection"
+          ],
+          "gold_rank": 1
+        }
+      ],
+      "recall@1": 1,
+      "recall@3": 1,
+      "recall@5": 1,
+      "reciprocal_rank": 1.0,
+      "ndcg@5": 1.0,
+      "tools_called": [],
+      "expected_tools": [
+        "get_medicine_details"
+      ],
+      "routing_recall": null,
+      "evidence_recall": null,
+      "gold_mention": null,
+      "judge_score": null,
+      "judge_verdict": "n/a",
+      "latency_ms": {
+        "end_to_end": 0.5,
+        "retrieval": 0.5
+      }
+    },
+    {
+      "id": 51,
+      "category": "medicine_vector",
+      "subtype": "manufacturer_price",
+      "difficulty": "easy",
+      "retrieval_type": "known_item",
+      "question": "Who manufactures Glenstim Peg 6mg Injection and what is its price?",
+      "gold": [
+        "Glenstim Peg 6mg Injection"
+      ],
+      "store": "vector",
+      "score_mode": "rank",
+      "relevance_terms": [],
+      "ground_truth": "Glenmark Pharmaceuticals Ltd manufactures Glenstim Peg 6mg Injection at a price of 3115.25.",
+      "answer": "",
+      "retrieved_top5": [
+        "Glenstim Peg 6mg Injection"
+      ],
+      "rank": 1,
+      "gold_found": true,
+      "retrieval_trace": [
+        {
+          "tool": "medicine_name",
+          "store": "vector",
+          "latency_ms": 0.2,
+          "top5": [
+            "Glenstim Peg 6mg Injection"
+          ],
+          "gold_rank": 1
+        }
+      ],
+      "recall@1": 1,
+      "recall@3": 1,
+      "recall@5": 1,
+      "reciprocal_rank": 1.0,
+      "ndcg@5": 1.0,
+      "tools_called": [],
+      "expected_tools": [
+        "get_medicine_details"
+      ],
+      "routing_recall": null,
+      "evidence_recall": null,
+      "gold_mention": null,
+      "judge_score": null,
+      "judge_verdict": "n/a",
+      "latency_ms": {
+        "end_to_end": 0.2,
+        "retrieval": 0.2
+      }
+    },
+    {
+      "id": 52,
+      "category": "medicine_vector",
+      "subtype": "composition",
+      "difficulty": "easy",
+      "retrieval_type": "known_item",
+      "question": "What's in each tablet of Acamprol?",
+      "gold": [
+        "Acamprol Tablet"
+      ],
+      "store": "vector",
+      "score_mode": "rank",
+      "relevance_terms": [],
+      "ground_truth": "Acamprosate (333mg)",
+      "answer": "",
+      "retrieved_top5": [
+        "Acamprol Tablet"
+      ],
+      "rank": 1,
+      "gold_found": true,
+      "retrieval_trace": [
+        {
+          "tool": "medicine_name",
+          "store": "vector",
+          "latency_ms": 0.1,
+          "top5": [
+            "Acamprol Tablet"
+          ],
+          "gold_rank": 1
+        }
+      ],
+      "recall@1": 1,
+      "recall@3": 1,
+      "recall@5": 1,
+      "reciprocal_rank": 1.0,
+      "ndcg@5": 1.0,
+      "tools_called": [],
+      "expected_tools": [
+        "get_medicine_details"
+      ],
+      "routing_recall": null,
+      "evidence_recall": null,
+      "gold_mention": null,
+      "judge_score": null,
+      "judge_verdict": "n/a",
+      "latency_ms": {
+        "end_to_end": 0.1,
+        "retrieval": 0.1
+      }
+    },
+    {
+      "id": 53,
+      "category": "medicine_vector",
+      "subtype": "drug_interactions",
+      "difficulty": "easy",
+      "retrieval_type": "known_item",
+      "question": "Which medications does Neo-Mercazole 20 Tablet interact with according to the data?",
+      "gold": [
+        "Neo-Mercazole 20 Tablet"
+      ],
+      "store": "vector",
+      "score_mode": "rank",
+      "relevance_terms": [],
+      "ground_truth": "Acenocoumarol, Digoxin, Theophylline, Warfarin",
+      "answer": "",
+      "retrieved_top5": [
+        "Neo-Mercazole 20 Tablet"
+      ],
+      "rank": 1,
+      "gold_found": true,
+      "retrieval_trace": [
+        {
+          "tool": "medicine_name",
+          "store": "vector",
+          "latency_ms": 0.1,
+          "top5": [
+            "Neo-Mercazole 20 Tablet"
+          ],
+          "gold_rank": 1
+        }
+      ],
+      "recall@1": 1,
+      "recall@3": 1,
+      "recall@5": 1,
+      "reciprocal_rank": 1.0,
+      "ndcg@5": 1.0,
+      "tools_called": [],
+      "expected_tools": [
+        "get_medicine_details"
+      ],
+      "routing_recall": null,
+      "evidence_recall": null,
+      "gold_mention": null,
+      "judge_score": null,
+      "judge_verdict": "n/a",
+      "latency_ms": {
+        "end_to_end": 0.1,
+        "retrieval": 0.1
+      }
+    },
+    {
+      "id": 54,
+      "category": "medicine_vector",
+      "subtype": "side_effects",
+      "difficulty": "easy",
+      "retrieval_type": "known_item",
+      "question": "What are the possible side effects of using Melsoma Nano Oral Spray?",
+      "gold": [
+        "Melsoma Nano Oral Spray"
+      ],
+      "store": "vector",
+      "score_mode": "rank",
+      "relevance_terms": [],
+      "ground_truth": "Headache, Drowsiness",
+      "answer": "",
+      "retrieved_top5": [
+        "Melsoma Nano Oral Spray"
+      ],
+      "rank": 1,
+      "gold_found": true,
+      "retrieval_trace": [
+        {
+          "tool": "medicine_name",
+          "store": "vector",
+          "latency_ms": 0.2,
+          "top5": [
+            "Melsoma Nano Oral Spray"
+          ],
+          "gold_rank": 1
+        }
+      ],
+      "recall@1": 1,
+      "recall@3": 1,
+      "recall@5": 1,
+      "reciprocal_rank": 1.0,
+      "ndcg@5": 1.0,
+      "tools_called": [],
+      "expected_tools": [
+        "get_medicine_details"
+      ],
+      "routing_recall": null,
+      "evidence_recall": null,
+      "gold_mention": null,
+      "judge_score": null,
+      "judge_verdict": "n/a",
+      "latency_ms": {
+        "end_to_end": 0.2,
+        "retrieval": 0.2
+      }
+    },
+    {
+      "id": 55,
+      "category": "medicine_vector",
+      "subtype": "composition",
+      "difficulty": "easy",
+      "retrieval_type": "known_item",
+      "question": "What's in Aquasol C Oral Drops?",
+      "gold": [
+        "Aquasol C Oral Drops"
+      ],
+      "store": "vector",
+      "score_mode": "rank",
+      "relevance_terms": [],
+      "ground_truth": "Vitamin C (75mg)",
+      "answer": "",
+      "retrieved_top5": [
+        "Aquasol C Oral Drops"
+      ],
+      "rank": 1,
+      "gold_found": true,
+      "retrieval_trace": [
+        {
+          "tool": "medicine_name",
+          "store": "vector",
+          "latency_ms": 0.1,
+          "top5": [
+            "Aquasol C Oral Drops"
+          ],
+          "gold_rank": 1
+        }
+      ],
+      "recall@1": 1,
+      "recall@3": 1,
+      "recall@5": 1,
+      "reciprocal_rank": 1.0,
+      "ndcg@5": 1.0,
+      "tools_called": [],
+      "expected_tools": [
+        "get_medicine_details"
+      ],
+      "routing_recall": null,
+      "evidence_recall": null,
+      "gold_mention": null,
+      "judge_score": null,
+      "judge_verdict": "n/a",
+      "latency_ms": {
+        "end_to_end": 0.1,
+        "retrieval": 0.1
+      }
+    },
+    {
+      "id": 56,
+      "category": "medicine_vector",
+      "subtype": "by_indication",
+      "difficulty": "hard",
+      "retrieval_type": "semantic",
+      "question": "What medicine can I take for diarrhea symptoms like stomach pain and cramps?",
+      "gold": [
+        "Racigyl O 15 mg/50 mg Dry Syrup"
+      ],
+      "store": "vector",
+      "score_mode": "relevance",
+      "relevance_terms": [
+        "diarrhea"
+      ],
+      "ground_truth": "Racigyl O 15 mg/50 mg Dry Syrup",
+      "answer": "",
+      "retrieved_top5": [
+        "Lomotil Tablet"
+      ],
+      "rank": 1,
+      "gold_found": true,
+      "retrieval_trace": [
+        {
+          "tool": "medicine_search",
+          "store": "vector",
+          "latency_ms": 12586.3,
+          "top5": [
+            "Lomotil Tablet"
+          ],
+          "gold_rank": 1
+        }
+      ],
+      "recall@1": 1,
+      "recall@3": 1,
+      "recall@5": 1,
+      "reciprocal_rank": 1.0,
+      "ndcg@5": 1.0,
+      "tools_called": [],
+      "expected_tools": [
+        "search_medicines"
+      ],
+      "routing_recall": null,
+      "evidence_recall": null,
+      "gold_mention": null,
+      "judge_score": null,
+      "judge_verdict": "n/a",
+      "latency_ms": {
+        "end_to_end": 12586.3,
+        "retrieval": 12586.3
+      }
+    },
+    {
+      "id": 57,
+      "category": "medicine_vector",
+      "subtype": "by_indication",
+      "difficulty": "hard",
+      "retrieval_type": "semantic",
+      "question": "I need a medicine to prevent asthma. What tablet can I take for this purpose?",
+      "gold": [
+        "Seretra 80 Tablet"
+      ],
+      "store": "vector",
+      "score_mode": "relevance",
+      "relevance_terms": [
+        "asthma"
+      ],
+      "ground_truth": "alatro tablet",
+      "answer": "",
+      "retrieved_top5": [
+        "AB-Flo SR Tablet",
+        "Acebrobid SR Tablet",
+        "Predmet 8 Tablet",
+        "Glemont-A Tablet SR",
+        "Oxybro Plus Tablet SR"
+      ],
+      "rank": 1,
+      "gold_found": true,
+      "retrieval_trace": [
+        {
+          "tool": "medicine_search",
+          "store": "vector",
+          "latency_ms": 3745.8,
+          "top5": [
+            "AB-Flo SR Tablet",
+            "Acebrobid SR Tablet",
+            "Predmet 8 Tablet",
+            "Glemont-A Tablet SR",
+            "Oxybro Plus Tablet SR"
+          ],
+          "gold_rank": 1
+        }
+      ],
+      "recall@1": 1,
+      "recall@3": 1,
+      "recall@5": 1,
+      "reciprocal_rank": 1.0,
+      "ndcg@5": 1.0,
+      "tools_called": [],
+      "expected_tools": [
+        "search_medicines"
+      ],
+      "routing_recall": null,
+      "evidence_recall": null,
+      "gold_mention": null,
+      "judge_score": null,
+      "judge_verdict": "n/a",
+      "latency_ms": {
+        "end_to_end": 3745.8,
+        "retrieval": 3745.8
+      }
+    },
+    {
+      "id": 58,
+      "category": "medicine_vector",
+      "subtype": "by_indication",
+      "difficulty": "hard",
+      "retrieval_type": "semantic",
+      "question": "What tablet is used to treat tuberculosis and protect nerves from side effects?",
+      "gold": [
+        "Isokin 300 Tablet"
+      ],
+      "store": "vector",
+      "score_mode": "relevance",
+      "relevance_terms": [
+        "tuberculosis"
+      ],
+      "ground_truth": "isoniazid with vitamin b6",
+      "answer": "",
+      "retrieved_top5": [
+        "Rifa I 6 Tablet",
+        "Combunex 800 Tablet",
+        "Forecox Tablet",
+        "Mycopas Tablet",
+        "Akurit Tablet"
+      ],
+      "rank": 1,
+      "gold_found": true,
+      "retrieval_trace": [
+        {
+          "tool": "medicine_search",
+          "store": "vector",
+          "latency_ms": 5151.2,
+          "top5": [
+            "Rifa I 6 Tablet",
+            "Combunex 800 Tablet",
+            "Forecox Tablet",
+            "Mycopas Tablet",
+            "Akurit Tablet"
+          ],
+          "gold_rank": 1
+        }
+      ],
+      "recall@1": 1,
+      "recall@3": 1,
+      "recall@5": 1,
+      "reciprocal_rank": 1.0,
+      "ndcg@5": 1.0,
+      "tools_called": [],
+      "expected_tools": [
+        "search_medicines"
+      ],
+      "routing_recall": null,
+      "evidence_recall": null,
+      "gold_mention": null,
+      "judge_score": null,
+      "judge_verdict": "n/a",
+      "latency_ms": {
+        "end_to_end": 5151.2,
+        "retrieval": 5151.2
+      }
+    },
+    {
+      "id": 59,
+      "category": "medicine_vector",
+      "subtype": "by_indication",
+      "difficulty": "hard",
+      "retrieval_type": "semantic",
+      "question": "What tablet can be used to treat depression by calming the brain and increasing chemical messengers in the brain?",
+      "gold": [
+        "Etizola Plus 5 Tablet"
+      ],
+      "store": "vector",
+      "score_mode": "relevance",
+      "relevance_terms": [
+        "depression"
+      ],
+      "ground_truth": "etizolam plus 5 tablet",
+      "answer": "",
+      "retrieved_top5": [
+        "Depran  10 Tablet"
+      ],
+      "rank": 1,
+      "gold_found": true,
+      "retrieval_trace": [
+        {
+          "tool": "medicine_search",
+          "store": "vector",
+          "latency_ms": 3981.4,
+          "top5": [
+            "Depran  10 Tablet"
+          ],
+          "gold_rank": 1
+        }
+      ],
+      "recall@1": 1,
+      "recall@3": 1,
+      "recall@5": 1,
+      "reciprocal_rank": 1.0,
+      "ndcg@5": 1.0,
+      "tools_called": [],
+      "expected_tools": [
+        "search_medicines"
+      ],
+      "routing_recall": null,
+      "evidence_recall": null,
+      "gold_mention": null,
+      "judge_score": null,
+      "judge_verdict": "n/a",
+      "latency_ms": {
+        "end_to_end": 3981.4,
+        "retrieval": 3981.4
+      }
+    },
+    {
+      "id": 60,
+      "category": "medicine_vector",
+      "subtype": "by_indication",
+      "difficulty": "hard",
+      "retrieval_type": "semantic",
+      "question": "What medicine would be appropriate for treating dry cough and allergy symptoms like runny nose and congestion?",
+      "gold": [
+        "Codistar 4mg/10mg Syrup"
+      ],
+      "store": "vector",
+      "score_mode": "relevance",
+      "relevance_terms": [
+        "dry cough allergy"
+      ],
+      "ground_truth": "codex syrup",
+      "answer": "",
+      "retrieved_top5": [
+        "Allegra-M Tablet"
+      ],
+      "rank": null,
+      "gold_found": false,
+      "retrieval_trace": [
+        {
+          "tool": "medicine_search",
+          "store": "vector",
+          "latency_ms": 3444.2,
+          "top5": [
+            "Allegra-M Tablet"
+          ],
+          "gold_rank": null
+        }
+      ],
+      "recall@1": 0,
+      "recall@3": 0,
+      "recall@5": 0,
+      "reciprocal_rank": 0.0,
+      "ndcg@5": 0.0,
+      "tools_called": [],
+      "expected_tools": [
+        "search_medicines"
+      ],
+      "routing_recall": null,
+      "evidence_recall": null,
+      "gold_mention": null,
+      "judge_score": null,
+      "judge_verdict": "n/a",
+      "latency_ms": {
+        "end_to_end": 3444.2,
+        "retrieval": 3444.2
+      }
+    },
+    {
+      "id": 61,
+      "category": "medicine_vector",
+      "subtype": "by_indication",
+      "difficulty": "hard",
+      "retrieval_type": "semantic",
+      "question": "What medicine would you take if you had overactive bladder symptoms like frequent urination and an urgent need to pee?",
+      "gold": [
+        "Dariten OD 7.5mg Tablet PR"
+      ],
+      "store": "vector",
+      "score_mode": "relevance",
+      "relevance_terms": [
+        "overactive bladder"
+      ],
+      "ground_truth": "darifenacin",
+      "answer": "",
+      "retrieved_top5": [
+        "L-Cin 500 Tablet",
+        "Levomac 500 Tablet"
+      ],
+      "rank": null,
+      "gold_found": false,
+      "retrieval_trace": [
+        {
+          "tool": "medicine_search",
+          "store": "vector",
+          "latency_ms": 3084.8,
+          "top5": [
+            "L-Cin 500 Tablet",
+            "Levomac 500 Tablet"
+          ],
+          "gold_rank": null
+        }
+      ],
+      "recall@1": 0,
+      "recall@3": 0,
+      "recall@5": 0,
+      "reciprocal_rank": 0.0,
+      "ndcg@5": 0.0,
+      "tools_called": [],
+      "expected_tools": [
+        "search_medicines"
+      ],
+      "routing_recall": null,
+      "evidence_recall": null,
+      "gold_mention": null,
+      "judge_score": null,
+      "judge_verdict": "n/a",
+      "latency_ms": {
+        "end_to_end": 3084.8,
+        "retrieval": 3084.8
+      }
+    },
+    {
+      "id": 62,
+      "category": "medicine_vector",
+      "subtype": "by_indication",
+      "difficulty": "hard",
+      "retrieval_type": "semantic",
+      "question": "What medicine can I take to treat a cough and allergy symptoms like runny nose and watery eyes?",
+      "gold": [
+        "Panthor DX Syrup"
+      ],
+      "store": "vector",
+      "score_mode": "relevance",
+      "relevance_terms": [
+        "cough, congestion, allergy"
+      ],
+      "ground_truth": "panthor dx syrup",
+      "answer": "",
+      "retrieved_top5": [
+        "Allegra-M Tablet"
+      ],
+      "rank": null,
+      "gold_found": false,
+      "retrieval_trace": [
+        {
+          "tool": "medicine_search",
+          "store": "vector",
+          "latency_ms": 3461.6,
+          "top5": [
+            "Allegra-M Tablet"
+          ],
+          "gold_rank": null
+        }
+      ],
+      "recall@1": 0,
+      "recall@3": 0,
+      "recall@5": 0,
+      "reciprocal_rank": 0.0,
+      "ndcg@5": 0.0,
+      "tools_called": [],
+      "expected_tools": [
+        "search_medicines"
+      ],
+      "routing_recall": null,
+      "evidence_recall": null,
+      "gold_mention": null,
+      "judge_score": null,
+      "judge_verdict": "n/a",
+      "latency_ms": {
+        "end_to_end": 3461.6,
+        "retrieval": 3461.6
+      }
+    },
+    {
+      "id": 63,
+      "category": "medicine_vector",
+      "subtype": "by_indication",
+      "difficulty": "hard",
+      "retrieval_type": "semantic",
+      "question": "What vaccine can be used to prevent pneumonia and meningitis?",
+      "gold": [
+        "Prevenar 13 Vaccine"
+      ],
+      "store": "vector",
+      "score_mode": "relevance",
+      "relevance_terms": [
+        "pneumonia, meningitis"
+      ],
+      "ground_truth": "prevenar 13 vaccine",
+      "answer": "",
+      "retrieved_top5": [
+        "Netspan 300mg Injection",
+        "Netromax 50mg Injection",
+        "Netilmac 50mg Injection",
+        "Netspan 10mg Injection",
+        "Endoxan N 1000mg Injection"
+      ],
+      "rank": null,
+      "gold_found": false,
+      "retrieval_trace": [
+        {
+          "tool": "medicine_search",
+          "store": "vector",
+          "latency_ms": 4080.7,
+          "top5": [
+            "Netspan 300mg Injection",
+            "Netromax 50mg Injection",
+            "Netilmac 50mg Injection",
+            "Netspan 10mg Injection",
+            "Endoxan N 1000mg Injection"
+          ],
+          "gold_rank": null
+        }
+      ],
+      "recall@1": 0,
+      "recall@3": 0,
+      "recall@5": 0,
+      "reciprocal_rank": 0.0,
+      "ndcg@5": 0.0,
+      "tools_called": [],
+      "expected_tools": [
+        "search_medicines"
+      ],
+      "routing_recall": null,
+      "evidence_recall": null,
+      "gold_mention": null,
+      "judge_score": null,
+      "judge_verdict": "n/a",
+      "latency_ms": {
+        "end_to_end": 4080.7,
+        "retrieval": 4080.7
+      }
+    },
+    {
+      "id": 64,
+      "category": "medicine_vector",
+      "subtype": "by_indication",
+      "difficulty": "hard",
+      "retrieval_type": "semantic",
+      "question": "What medicine can I use to treat lysine deficiency and cold sores caused by viral infections?",
+      "gold": [
+        "Lysatone Plus Syrup Sugar Free"
+      ],
+      "store": "vector",
+      "score_mode": "relevance",
+      "relevance_terms": [
+        "lysine deficiency, cold sore"
+      ],
+      "ground_truth": "lysine supplement",
+      "answer": "",
+      "retrieved_top5": [
+        "Zytee RB Gel",
+        "Zytee L Gel",
+        "Aciloc 150 Tablet",
+        "Aciloc 300 Tablet",
+        "Zinetac 150mg Tablet"
+      ],
+      "rank": null,
+      "gold_found": false,
+      "retrieval_trace": [
+        {
+          "tool": "medicine_search",
+          "store": "vector",
+          "latency_ms": 4144.6,
+          "top5": [
+            "Zytee RB Gel",
+            "Zytee L Gel",
+            "Aciloc 150 Tablet",
+            "Aciloc 300 Tablet",
+            "Zinetac 150mg Tablet"
+          ],
+          "gold_rank": null
+        }
+      ],
+      "recall@1": 0,
+      "recall@3": 0,
+      "recall@5": 0,
+      "reciprocal_rank": 0.0,
+      "ndcg@5": 0.0,
+      "tools_called": [],
+      "expected_tools": [
+        "search_medicines"
+      ],
+      "routing_recall": null,
+      "evidence_recall": null,
+      "gold_mention": null,
+      "judge_score": null,
+      "judge_verdict": "n/a",
+      "latency_ms": {
+        "end_to_end": 4144.6,
+        "retrieval": 4144.6
+      }
+    },
+    {
+      "id": 65,
+      "category": "medicine_vector",
+      "subtype": "by_indication",
+      "difficulty": "hard",
+      "retrieval_type": "semantic",
+      "question": "What medicine can I take to increase the time it takes to ejaculate?",
+      "gold": [
+        "Dapoxy 60mg Tablet"
+      ],
+      "store": "vector",
+      "score_mode": "relevance",
+      "relevance_terms": [
+        "premature ejaculation"
+      ],
+      "ground_truth": "durablex tablet",
+      "answer": "",
+      "retrieved_top5": [
+        "Testosterone Undecanoate 40mg Capsule",
+        "Restore 25mg Tablet",
+        "Coedhea Plus Capsule",
+        "Ovasure 25mg Capsule",
+        "Evaserve Tablet"
+      ],
+      "rank": null,
+      "gold_found": false,
+      "retrieval_trace": [
+        {
+          "tool": "medicine_search",
+          "store": "vector",
+          "latency_ms": 5173.0,
+          "top5": [
+            "Testosterone Undecanoate 40mg Capsule",
+            "Restore 25mg Tablet",
+            "Coedhea Plus Capsule",
+            "Ovasure 25mg Capsule",
+            "Evaserve Tablet"
+          ],
+          "gold_rank": null
+        }
+      ],
+      "recall@1": 0,
+      "recall@3": 0,
+      "recall@5": 0,
+      "reciprocal_rank": 0.0,
+      "ndcg@5": 0.0,
+      "tools_called": [],
+      "expected_tools": [
+        "search_medicines"
+      ],
+      "routing_recall": null,
+      "evidence_recall": null,
+      "gold_mention": null,
+      "judge_score": null,
+      "judge_verdict": "n/a",
+      "latency_ms": {
+        "end_to_end": 5173.0,
+        "retrieval": 5173.0
+      }
+    },
+    {
+      "id": 66,
+      "category": "medicine_vector",
+      "subtype": "by_indication",
+      "difficulty": "hard",
+      "retrieval_type": "semantic",
+      "question": "What medicine can be used to treat ear infections and relieve symptoms like redness and itchiness?",
+      "gold": [
+        "Olex Ear Drop"
+      ],
+      "store": "vector",
+      "score_mode": "relevance",
+      "relevance_terms": [
+        "ear infection"
+      ],
+      "ground_truth": "Olex Ear Drop",
+      "answer": "",
+      "retrieved_top5": [
+        "Azikem 500mg Tablet"
+      ],
+      "rank": 1,
+      "gold_found": true,
+      "retrieval_trace": [
+        {
+          "tool": "medicine_search",
+          "store": "vector",
+          "latency_ms": 2968.8,
+          "top5": [
+            "Azikem 500mg Tablet"
+          ],
+          "gold_rank": 1
+        }
+      ],
+      "recall@1": 1,
+      "recall@3": 1,
+      "recall@5": 1,
+      "reciprocal_rank": 1.0,
+      "ndcg@5": 1.0,
+      "tools_called": [],
+      "expected_tools": [
+        "search_medicines"
+      ],
+      "routing_recall": null,
+      "evidence_recall": null,
+      "gold_mention": null,
+      "judge_score": null,
+      "judge_verdict": "n/a",
+      "latency_ms": {
+        "end_to_end": 2968.8,
+        "retrieval": 2968.8
+      }
+    },
+    {
+      "id": 67,
+      "category": "medicine_vector",
+      "subtype": "by_indication",
+      "difficulty": "hard",
+      "retrieval_type": "semantic",
+      "question": "What tablet can be used to treat moderate to severe Alzheimer's disease and help improve memory and thinking?",
+      "gold": [
+        "Donamem Forte Tablet"
+      ],
+      "store": "vector",
+      "score_mode": "relevance",
+      "relevance_terms": [
+        "alzheimer's disease"
+      ],
+      "ground_truth": "Donamem Forte Tablet",
+      "answer": "",
+      "retrieved_top5": [
+        "Donamem Forte Tablet",
+        "Donep-M Forte Tablet",
+        "Donamem 10 Tablet",
+        "Alzil-M 5 Tablet",
+        "Aricep-M  Tablet"
+      ],
+      "rank": 1,
+      "gold_found": true,
+      "retrieval_trace": [
+        {
+          "tool": "medicine_search",
+          "store": "vector",
+          "latency_ms": 3291.8,
+          "top5": [
+            "Donamem Forte Tablet",
+            "Donep-M Forte Tablet",
+            "Donamem 10 Tablet",
+            "Alzil-M 5 Tablet",
+            "Aricep-M  Tablet"
+          ],
+          "gold_rank": 1
+        }
+      ],
+      "recall@1": 1,
+      "recall@3": 1,
+      "recall@5": 1,
+      "reciprocal_rank": 1.0,
+      "ndcg@5": 1.0,
+      "tools_called": [],
+      "expected_tools": [
+        "search_medicines"
+      ],
+      "routing_recall": null,
+      "evidence_recall": null,
+      "gold_mention": null,
+      "judge_score": null,
+      "judge_verdict": "n/a",
+      "latency_ms": {
+        "end_to_end": 3291.8,
+        "retrieval": 3291.8
+      }
+    },
+    {
+      "id": 68,
+      "category": "medicine_vector",
+      "subtype": "by_indication",
+      "difficulty": "hard",
+      "retrieval_type": "semantic",
+      "question": "I need a medicine to treat moderate to severe pain and opioid addiction. What could be used for this purpose?",
+      "gold": [
+        "Buvalor 10mg Transdermal Patch"
+      ],
+      "store": "vector",
+      "score_mode": "relevance",
+      "relevance_terms": [
+        "pain, opioid dependence"
+      ],
+      "ground_truth": "buprenorphine transdermal patch",
+      "answer": "",
+      "retrieved_top5": [
+        "Meftal 500 Tablet"
+      ],
+      "rank": null,
+      "gold_found": false,
+      "retrieval_trace": [
+        {
+          "tool": "medicine_search",
+          "store": "vector",
+          "latency_ms": 2658.8,
+          "top5": [
+            "Meftal 500 Tablet"
+          ],
+          "gold_rank": null
+        }
+      ],
+      "recall@1": 0,
+      "recall@3": 0,
+      "recall@5": 0,
+      "reciprocal_rank": 0.0,
+      "ndcg@5": 0.0,
+      "tools_called": [],
+      "expected_tools": [
+        "search_medicines"
+      ],
+      "routing_recall": null,
+      "evidence_recall": null,
+      "gold_mention": null,
+      "judge_score": null,
+      "judge_verdict": "n/a",
+      "latency_ms": {
+        "end_to_end": 2658.8,
+        "retrieval": 2658.8
+      }
+    },
+    {
+      "id": 69,
+      "category": "medicine_vector",
+      "subtype": "by_indication",
+      "difficulty": "hard",
+      "retrieval_type": "semantic",
+      "question": "What medicine is used to prevent rejection of a transplanted organ by weakening the immune system?",
+      "gold": [
+        "Pangraf 0.5 Capsule"
+      ],
+      "store": "vector",
+      "score_mode": "relevance",
+      "relevance_terms": [
+        "organ transplant"
+      ],
+      "ground_truth": "immunosuppressant",
+      "answer": "",
+      "retrieved_top5": [
+        "IT-Mac 200 Capsule"
+      ],
+      "rank": null,
+      "gold_found": false,
+      "retrieval_trace": [
+        {
+          "tool": "medicine_search",
+          "store": "vector",
+          "latency_ms": 4258.2,
+          "top5": [
+            "IT-Mac 200 Capsule"
+          ],
+          "gold_rank": null
+        }
+      ],
+      "recall@1": 0,
+      "recall@3": 0,
+      "recall@5": 0,
+      "reciprocal_rank": 0.0,
+      "ndcg@5": 0.0,
+      "tools_called": [],
+      "expected_tools": [
+        "search_medicines"
+      ],
+      "routing_recall": null,
+      "evidence_recall": null,
+      "gold_mention": null,
+      "judge_score": null,
+      "judge_verdict": "n/a",
+      "latency_ms": {
+        "end_to_end": 4258.2,
+        "retrieval": 4258.2
+      }
+    },
+    {
+      "id": 70,
+      "category": "medicine_vector",
+      "subtype": "by_indication",
+      "difficulty": "hard",
+      "retrieval_type": "semantic",
+      "question": "What medicine can be used to prevent blood clots from forming or growing bigger in the legs, lungs, brain, or heart?",
+      "gold": [
+        "Fragmin 5000IU Injection"
+      ],
+      "store": "vector",
+      "score_mode": "relevance",
+      "relevance_terms": [
+        "acute coronary syndrome, deep vein thrombosis, pulmonary embolism"
+      ],
+      "ground_truth": "anticoagulant",
+      "answer": "",
+      "retrieved_top5": [
+        "Apixabid 5 Tablet",
+        "Apigat 5 Tablet",
+        "Apigat 2.5 Tablet",
+        "Eliquis 5mg Tablet",
+        "Clavix Tablet"
+      ],
+      "rank": null,
+      "gold_found": false,
+      "retrieval_trace": [
+        {
+          "tool": "medicine_search",
+          "store": "vector",
+          "latency_ms": 4767.8,
+          "top5": [
+            "Apixabid 5 Tablet",
+            "Apigat 5 Tablet",
+            "Apigat 2.5 Tablet",
+            "Eliquis 5mg Tablet",
+            "Clavix Tablet"
+          ],
+          "gold_rank": null
+        }
+      ],
+      "recall@1": 0,
+      "recall@3": 0,
+      "recall@5": 0,
+      "reciprocal_rank": 0.0,
+      "ndcg@5": 0.0,
+      "tools_called": [],
+      "expected_tools": [
+        "search_medicines"
+      ],
+      "routing_recall": null,
+      "evidence_recall": null,
+      "gold_mention": null,
+      "judge_score": null,
+      "judge_verdict": "n/a",
+      "latency_ms": {
+        "end_to_end": 4767.8,
+        "retrieval": 4767.8
+      }
+    },
+    {
+      "id": 71,
+      "category": "medicine_vector",
+      "subtype": "by_side_effect",
+      "difficulty": "medium",
+      "retrieval_type": "semantic",
+      "question": "Which medicine might cause vaginal burning as a side effect?",
+      "gold": [
+        "Clingen Forte  Vaginal Capsule"
+      ],
+      "store": "vector",
+      "score_mode": "relevance",
+      "relevance_terms": [
+        "Vaginal burning sensation"
+      ],
+      "ground_truth": "Clingen Forte Vaginal Capsule",
+      "answer": "",
+      "retrieved_top5": [
+        "Regestrone CR 10mg Tablet",
+        "Livial Tablet",
+        "Ovigyn-DSR Tablet",
+        "Ralista Tablet",
+        "Ralotab 60mg Tablet"
+      ],
+      "rank": null,
+      "gold_found": false,
+      "retrieval_trace": [
+        {
+          "tool": "medicine_search",
+          "store": "vector",
+          "latency_ms": 540.8,
+          "top5": [
+            "Regestrone CR 10mg Tablet",
+            "Livial Tablet",
+            "Ovigyn-DSR Tablet",
+            "Ralista Tablet",
+            "Ralotab 60mg Tablet"
+          ],
+          "gold_rank": null
+        }
+      ],
+      "recall@1": 0,
+      "recall@3": 0,
+      "recall@5": 0,
+      "reciprocal_rank": 0.0,
+      "ndcg@5": 0.0,
+      "tools_called": [],
+      "expected_tools": [
+        "search_medicines"
+      ],
+      "routing_recall": null,
+      "evidence_recall": null,
+      "gold_mention": null,
+      "judge_score": null,
+      "judge_verdict": "n/a",
+      "latency_ms": {
+        "end_to_end": 540.8,
+        "retrieval": 540.8
+      }
+    },
+    {
+      "id": 72,
+      "category": "medicine_vector",
+      "subtype": "by_side_effect",
+      "difficulty": "medium",
+      "retrieval_type": "semantic",
+      "question": "Which medicine might cause bone pain as a side effect?",
+      "gold": [
+        "Busarlin 7mg Injection"
+      ],
+      "store": "vector",
+      "score_mode": "relevance",
+      "relevance_terms": [
+        "Bone pain"
+      ],
+      "ground_truth": "Busarlin 7mg Injection",
+      "answer": "",
+      "retrieved_top5": [
+        "Cepodem XP 325 Tablet"
+      ],
+      "rank": null,
+      "gold_found": false,
+      "retrieval_trace": [
+        {
+          "tool": "medicine_search",
+          "store": "vector",
+          "latency_ms": 331.0,
+          "top5": [
+            "Cepodem XP 325 Tablet"
+          ],
+          "gold_rank": null
+        }
+      ],
+      "recall@1": 0,
+      "recall@3": 0,
+      "recall@5": 0,
+      "reciprocal_rank": 0.0,
+      "ndcg@5": 0.0,
+      "tools_called": [],
+      "expected_tools": [
+        "search_medicines"
+      ],
+      "routing_recall": null,
+      "evidence_recall": null,
+      "gold_mention": null,
+      "judge_score": null,
+      "judge_verdict": "n/a",
+      "latency_ms": {
+        "end_to_end": 331.0,
+        "retrieval": 331.0
+      }
+    },
+    {
+      "id": 73,
+      "category": "medicine_vector",
+      "subtype": "by_side_effect",
+      "difficulty": "medium",
+      "retrieval_type": "semantic",
+      "question": "Which medicine might cause anemia, which is when there are not enough healthy red blood cells?",
+      "gold": [
+        "Clokeran 5mg Tablet"
+      ],
+      "store": "vector",
+      "score_mode": "relevance",
+      "relevance_terms": [
+        "Anemia (low number of red blood cells)"
+      ],
+      "ground_truth": "Clokeran 5mg Tablet",
+      "answer": "",
+      "retrieved_top5": [
+        "Feronia-IV 100 Injection",
+        "Hemfer 100mg Injection",
+        "R.B Tone Injection",
+        "Irozorb S 50mg Injection",
+        "Rubired S 100mg Injection"
+      ],
+      "rank": null,
+      "gold_found": false,
+      "retrieval_trace": [
+        {
+          "tool": "medicine_search",
+          "store": "vector",
+          "latency_ms": 4112.4,
+          "top5": [
+            "Feronia-IV 100 Injection",
+            "Hemfer 100mg Injection",
+            "R.B Tone Injection",
+            "Irozorb S 50mg Injection",
+            "Rubired S 100mg Injection"
+          ],
+          "gold_rank": null
+        }
+      ],
+      "recall@1": 0,
+      "recall@3": 0,
+      "recall@5": 0,
+      "reciprocal_rank": 0.0,
+      "ndcg@5": 0.0,
+      "tools_called": [],
+      "expected_tools": [
+        "search_medicines"
+      ],
+      "routing_recall": null,
+      "evidence_recall": null,
+      "gold_mention": null,
+      "judge_score": null,
+      "judge_verdict": "n/a",
+      "latency_ms": {
+        "end_to_end": 4112.4,
+        "retrieval": 4112.4
+      }
+    },
+    {
+      "id": 74,
+      "category": "medicine_vector",
+      "subtype": "by_side_effect",
+      "difficulty": "medium",
+      "retrieval_type": "semantic",
+      "question": "Which tablet might cause throat pain as a side effect?",
+      "gold": [
+        "Rizact 5 Tablet"
+      ],
+      "store": "vector",
+      "score_mode": "relevance",
+      "relevance_terms": [
+        "Throat pain"
+      ],
+      "ground_truth": "Rizact 5 Tablet",
+      "answer": "",
+      "retrieved_top5": [
+        "Symbal 20 Tablet",
+        "Ornage Tablet",
+        "Sysron-NCR Tablet",
+        "Hepbest Tablet"
+      ],
+      "rank": null,
+      "gold_found": false,
+      "retrieval_trace": [
+        {
+          "tool": "medicine_search",
+          "store": "vector",
+          "latency_ms": 465.2,
+          "top5": [
+            "Symbal 20 Tablet",
+            "Ornage Tablet",
+            "Sysron-NCR Tablet",
+            "Hepbest Tablet"
+          ],
+          "gold_rank": null
+        }
+      ],
+      "recall@1": 0,
+      "recall@3": 0,
+      "recall@5": 0,
+      "reciprocal_rank": 0.0,
+      "ndcg@5": 0.0,
+      "tools_called": [],
+      "expected_tools": [
+        "search_medicines"
+      ],
+      "routing_recall": null,
+      "evidence_recall": null,
+      "gold_mention": null,
+      "judge_score": null,
+      "judge_verdict": "n/a",
+      "latency_ms": {
+        "end_to_end": 465.2,
+        "retrieval": 465.2
+      }
+    },
+    {
+      "id": 75,
+      "category": "medicine_vector",
+      "subtype": "by_side_effect",
+      "difficulty": "medium",
+      "retrieval_type": "semantic",
+      "question": "Which medicine can cause a stuffy nose as a side effect?",
+      "gold": [
+        "Oxydrops Infant 0.01% Nasal Drops"
+      ],
+      "store": "vector",
+      "score_mode": "relevance",
+      "relevance_terms": [
+        "Nasal congestion (stuffy nose)"
+      ],
+      "ground_truth": "Oxydrops Infant 0.01% Nasal Drops",
+      "answer": "",
+      "retrieved_top5": [
+        "Dpressin Nasal Spray",
+        "Levolin 50mcg Inhaler",
+        "Oxynase 0.05% Nasal Spray",
+        "DRISTAN NASAL SPRAY",
+        "Oxymist Paed 0.025% Nasal Spray"
+      ],
+      "rank": 1,
+      "gold_found": true,
+      "retrieval_trace": [
+        {
+          "tool": "medicine_search",
+          "store": "vector",
+          "latency_ms": 573.2,
+          "top5": [
+            "Dpressin Nasal Spray",
+            "Levolin 50mcg Inhaler",
+            "Oxynase 0.05% Nasal Spray",
+            "DRISTAN NASAL SPRAY",
+            "Oxymist Paed 0.025% Nasal Spray"
+          ],
+          "gold_rank": 1
+        }
+      ],
+      "recall@1": 1,
+      "recall@3": 1,
+      "recall@5": 1,
+      "reciprocal_rank": 1.0,
+      "ndcg@5": 1.0,
+      "tools_called": [],
+      "expected_tools": [
+        "search_medicines"
+      ],
+      "routing_recall": null,
+      "evidence_recall": null,
+      "gold_mention": null,
+      "judge_score": null,
+      "judge_verdict": "n/a",
+      "latency_ms": {
+        "end_to_end": 573.2,
+        "retrieval": 573.2
+      }
+    },
+    {
+      "id": 76,
+      "category": "medicine_vector",
+      "subtype": "by_side_effect",
+      "difficulty": "medium",
+      "retrieval_type": "semantic",
+      "question": "Which medicine can cause dizziness as a side effect?",
+      "gold": [
+        "Tidilan 20 Tablet"
+      ],
+      "store": "vector",
+      "score_mode": "relevance",
+      "relevance_terms": [
+        "Dizziness"
+      ],
+      "ground_truth": "Tidilan 20 Tablet",
+      "answer": "",
+      "retrieved_top5": [
+        "Duvadilan Tablet",
+        "Gestakind 10mg Tablet",
+        "Isolone 10mg Tablet",
+        "Sine 10mg Tablet",
+        "Adilan 10 Tablet"
+      ],
+      "rank": 1,
+      "gold_found": true,
+      "retrieval_trace": [
+        {
+          "tool": "medicine_search",
+          "store": "vector",
+          "latency_ms": 433.8,
+          "top5": [
+            "Duvadilan Tablet",
+            "Gestakind 10mg Tablet",
+            "Isolone 10mg Tablet",
+            "Sine 10mg Tablet",
+            "Adilan 10 Tablet"
+          ],
+          "gold_rank": 1
+        }
+      ],
+      "recall@1": 1,
+      "recall@3": 1,
+      "recall@5": 1,
+      "reciprocal_rank": 1.0,
+      "ndcg@5": 1.0,
+      "tools_called": [],
+      "expected_tools": [
+        "search_medicines"
+      ],
+      "routing_recall": null,
+      "evidence_recall": null,
+      "gold_mention": null,
+      "judge_score": null,
+      "judge_verdict": "n/a",
+      "latency_ms": {
+        "end_to_end": 433.8,
+        "retrieval": 433.8
+      }
+    },
+    {
+      "id": 77,
+      "category": "medicine_vector",
+      "subtype": "by_side_effect",
+      "difficulty": "medium",
+      "retrieval_type": "semantic",
+      "question": "Which medicine might cause muscle pain as a side effect?",
+      "gold": [
+        "Doran-O 4mg/50mg Injection"
+      ],
+      "store": "vector",
+      "score_mode": "relevance",
+      "relevance_terms": [
+        "Muscle pain"
+      ],
+      "ground_truth": "Doran-O 4mg/50mg Injection",
+      "answer": "",
+      "retrieved_top5": [
+        "Formoflo 250 Transhaler",
+        "Formonide 200 Inhaler",
+        "Aerocort Inhaler",
+        "Duolin Inhaler",
+        "Primacort 100 Injection"
+      ],
+      "rank": 1,
+      "gold_found": true,
+      "retrieval_trace": [
+        {
+          "tool": "medicine_search",
+          "store": "vector",
+          "latency_ms": 530.0,
+          "top5": [
+            "Formoflo 250 Transhaler",
+            "Formonide 200 Inhaler",
+            "Aerocort Inhaler",
+            "Duolin Inhaler",
+            "Primacort 100 Injection"
+          ],
+          "gold_rank": 1
+        }
+      ],
+      "recall@1": 1,
+      "recall@3": 1,
+      "recall@5": 1,
+      "reciprocal_rank": 1.0,
+      "ndcg@5": 1.0,
+      "tools_called": [],
+      "expected_tools": [
+        "search_medicines"
+      ],
+      "routing_recall": null,
+      "evidence_recall": null,
+      "gold_mention": null,
+      "judge_score": null,
+      "judge_verdict": "n/a",
+      "latency_ms": {
+        "end_to_end": 530.0,
+        "retrieval": 530.0
+      }
+    },
+    {
+      "id": 78,
+      "category": "medicine_vector",
+      "subtype": "by_side_effect",
+      "difficulty": "medium",
+      "retrieval_type": "semantic",
+      "question": "Which medicine might cause a decrease in white blood cell count?",
+      "gold": [
+        "Valgan Tablet"
+      ],
+      "store": "vector",
+      "score_mode": "relevance",
+      "relevance_terms": [
+        "Decreased white blood cell count"
+      ],
+      "ground_truth": "Valgan Tablet",
+      "answer": "",
+      "retrieved_top5": [
+        "Nitrol 20mg Injection",
+        "Glenstim Peg 6mg Injection",
+        "Religrast 300mcg Injection",
+        "Lupifil P 6mg Injection",
+        "Wepox 4000 Injection"
+      ],
+      "rank": 1,
+      "gold_found": true,
+      "retrieval_trace": [
+        {
+          "tool": "medicine_search",
+          "store": "vector",
+          "latency_ms": 3793.7,
+          "top5": [
+            "Nitrol 20mg Injection",
+            "Glenstim Peg 6mg Injection",
+            "Religrast 300mcg Injection",
+            "Lupifil P 6mg Injection",
+            "Wepox 4000 Injection"
+          ],
+          "gold_rank": 1
+        }
+      ],
+      "recall@1": 1,
+      "recall@3": 1,
+      "recall@5": 1,
+      "reciprocal_rank": 1.0,
+      "ndcg@5": 1.0,
+      "tools_called": [],
+      "expected_tools": [
+        "search_medicines"
+      ],
+      "routing_recall": null,
+      "evidence_recall": null,
+      "gold_mention": null,
+      "judge_score": null,
+      "judge_verdict": "n/a",
+      "latency_ms": {
+        "end_to_end": 3793.7,
+        "retrieval": 3793.7
+      }
+    },
+    {
+      "id": 79,
+      "category": "medicine_vector",
+      "subtype": "by_side_effect",
+      "difficulty": "medium",
+      "retrieval_type": "semantic",
+      "question": "Which medicine might cause headaches as a side effect?",
+      "gold": [
+        "Saaz -DS Tablet DR"
+      ],
+      "store": "vector",
+      "score_mode": "relevance",
+      "relevance_terms": [
+        "Headache"
+      ],
+      "ground_truth": "Saaz -DS Tablet",
+      "answer": "",
+      "retrieved_top5": [
+        "Bilazest 20mg Tablet",
+        "Velpaclear Tablet",
+        "Cirkedian Tablet",
+        "Falcigo 50mg Tablet"
+      ],
+      "rank": 1,
+      "gold_found": true,
+      "retrieval_trace": [
+        {
+          "tool": "medicine_search",
+          "store": "vector",
+          "latency_ms": 327.3,
+          "top5": [
+            "Bilazest 20mg Tablet",
+            "Velpaclear Tablet",
+            "Cirkedian Tablet",
+            "Falcigo 50mg Tablet"
+          ],
+          "gold_rank": 1
+        }
+      ],
+      "recall@1": 1,
+      "recall@3": 1,
+      "recall@5": 1,
+      "reciprocal_rank": 1.0,
+      "ndcg@5": 1.0,
+      "tools_called": [],
+      "expected_tools": [
+        "search_medicines"
+      ],
+      "routing_recall": null,
+      "evidence_recall": null,
+      "gold_mention": null,
+      "judge_score": null,
+      "judge_verdict": "n/a",
+      "latency_ms": {
+        "end_to_end": 327.3,
+        "retrieval": 327.3
+      }
+    },
+    {
+      "id": 80,
+      "category": "medicine_vector",
+      "subtype": "by_side_effect",
+      "difficulty": "medium",
+      "retrieval_type": "semantic",
+      "question": "Which medicine can cause a headache as a side effect?",
+      "gold": [
+        "V-Stat 100mcg Injection"
+      ],
+      "store": "vector",
+      "score_mode": "relevance",
+      "relevance_terms": [
+        "Headache"
+      ],
+      "ground_truth": "V-Stat 100mcg Injection",
+      "answer": "",
+      "retrieved_top5": [
+        "Bilazest 20mg Tablet",
+        "Velpaclear Tablet",
+        "Cirkedian Tablet",
+        "Falcigo 50mg Tablet"
+      ],
+      "rank": 1,
+      "gold_found": true,
+      "retrieval_trace": [
+        {
+          "tool": "medicine_search",
+          "store": "vector",
+          "latency_ms": 320.5,
+          "top5": [
+            "Bilazest 20mg Tablet",
+            "Velpaclear Tablet",
+            "Cirkedian Tablet",
+            "Falcigo 50mg Tablet"
+          ],
+          "gold_rank": 1
+        }
+      ],
+      "recall@1": 1,
+      "recall@3": 1,
+      "recall@5": 1,
+      "reciprocal_rank": 1.0,
+      "ndcg@5": 1.0,
+      "tools_called": [],
+      "expected_tools": [
+        "search_medicines"
+      ],
+      "routing_recall": null,
+      "evidence_recall": null,
+      "gold_mention": null,
+      "judge_score": null,
+      "judge_verdict": "n/a",
+      "latency_ms": {
+        "end_to_end": 320.5,
+        "retrieval": 320.5
+      }
+    },
+    {
+      "id": 81,
+      "category": "medicine_vector",
+      "subtype": "by_side_effect",
+      "difficulty": "medium",
+      "retrieval_type": "semantic",
+      "question": "Which medicine might cause oropharyngeal pain as a side effect?",
+      "gold": [
+        "Glenstim Peg 6mg Injection"
+      ],
+      "store": "vector",
+      "score_mode": "relevance",
+      "relevance_terms": [
+        "Oropharyngeal pain"
+      ],
+      "ground_truth": "Glenstim Peg 6mg Injection",
+      "answer": "",
+      "retrieved_top5": [
+        "Prodep Capsule"
+      ],
+      "rank": null,
+      "gold_found": false,
+      "retrieval_trace": [
+        {
+          "tool": "medicine_search",
+          "store": "vector",
+          "latency_ms": 906.1,
+          "top5": [
+            "Prodep Capsule"
+          ],
+          "gold_rank": null
+        }
+      ],
+      "recall@1": 0,
+      "recall@3": 0,
+      "recall@5": 0,
+      "reciprocal_rank": 0.0,
+      "ndcg@5": 0.0,
+      "tools_called": [],
+      "expected_tools": [
+        "search_medicines"
+      ],
+      "routing_recall": null,
+      "evidence_recall": null,
+      "gold_mention": null,
+      "judge_score": null,
+      "judge_verdict": "n/a",
+      "latency_ms": {
+        "end_to_end": 906.1,
+        "retrieval": 906.1
+      }
+    },
+    {
+      "id": 82,
+      "category": "medicine_vector",
+      "subtype": "by_side_effect",
+      "difficulty": "medium",
+      "retrieval_type": "semantic",
+      "question": "Which medicine can cause nausea as a side effect?",
+      "gold": [
+        "Acamprol Tablet"
+      ],
+      "store": "vector",
+      "score_mode": "relevance",
+      "relevance_terms": [
+        "Nausea"
+      ],
+      "ground_truth": "Acamprol Tablet",
+      "answer": "",
+      "retrieved_top5": [
+        "Flavoride-Plus Tablet",
+        "Rifagut 550 Tablet",
+        "Urinet O Tablet",
+        "Elkar Tablet",
+        "Rifagut Tablet"
+      ],
+      "rank": 1,
+      "gold_found": true,
+      "retrieval_trace": [
+        {
+          "tool": "medicine_search",
+          "store": "vector",
+          "latency_ms": 386.7,
+          "top5": [
+            "Flavoride-Plus Tablet",
+            "Rifagut 550 Tablet",
+            "Urinet O Tablet",
+            "Elkar Tablet",
+            "Rifagut Tablet"
+          ],
+          "gold_rank": 1
+        }
+      ],
+      "recall@1": 1,
+      "recall@3": 1,
+      "recall@5": 1,
+      "reciprocal_rank": 1.0,
+      "ndcg@5": 1.0,
+      "tools_called": [],
+      "expected_tools": [
+        "search_medicines"
+      ],
+      "routing_recall": null,
+      "evidence_recall": null,
+      "gold_mention": null,
+      "judge_score": null,
+      "judge_verdict": "n/a",
+      "latency_ms": {
+        "end_to_end": 386.7,
+        "retrieval": 386.7
+      }
+    },
+    {
+      "id": 83,
+      "category": "medicine_vector",
+      "subtype": "by_side_effect",
+      "difficulty": "medium",
+      "retrieval_type": "semantic",
+      "question": "Which medicine can cause gastrointestinal disturbance as a side effect?",
+      "gold": [
+        "Neo-Mercazole 20 Tablet"
+      ],
+      "store": "vector",
+      "score_mode": "relevance",
+      "relevance_terms": [
+        "Gastrointestinal disturbance"
+      ],
+      "ground_truth": "Neo-Mercazole 20 Tablet",
+      "answer": "",
+      "retrieved_top5": [
+        "Aciloc RD 20 Tablet"
+      ],
+      "rank": null,
+      "gold_found": false,
+      "retrieval_trace": [
+        {
+          "tool": "medicine_search",
+          "store": "vector",
+          "latency_ms": 3640.1,
+          "top5": [
+            "Aciloc RD 20 Tablet"
+          ],
+          "gold_rank": null
+        }
+      ],
+      "recall@1": 0,
+      "recall@3": 0,
+      "recall@5": 0,
+      "reciprocal_rank": 0.0,
+      "ndcg@5": 0.0,
+      "tools_called": [],
+      "expected_tools": [
+        "search_medicines"
+      ],
+      "routing_recall": null,
+      "evidence_recall": null,
+      "gold_mention": null,
+      "judge_score": null,
+      "judge_verdict": "n/a",
+      "latency_ms": {
+        "end_to_end": 3640.1,
+        "retrieval": 3640.1
+      }
+    },
+    {
+      "id": 84,
+      "category": "medicine_vector",
+      "subtype": "by_side_effect",
+      "difficulty": "medium",
+      "retrieval_type": "semantic",
+      "question": "Which medicine might make me feel drowsy?",
+      "gold": [
+        "Melsoma Nano Oral Spray"
+      ],
+      "store": "vector",
+      "score_mode": "relevance",
+      "relevance_terms": [
+        "Drowsiness"
+      ],
+      "ground_truth": "Melsoma Nano Oral Spray",
+      "answer": "",
+      "retrieved_top5": [
+        "Restyl 0.5mg Tablet",
+        "Alprax 0.25 Tablet",
+        "Restyl 0.25mg Tablet"
+      ],
+      "rank": 1,
+      "gold_found": true,
+      "retrieval_trace": [
+        {
+          "tool": "medicine_search",
+          "store": "vector",
+          "latency_ms": 306.3,
+          "top5": [
+            "Restyl 0.5mg Tablet",
+            "Alprax 0.25 Tablet",
+            "Restyl 0.25mg Tablet"
+          ],
+          "gold_rank": 1
+        }
+      ],
+      "recall@1": 1,
+      "recall@3": 1,
+      "recall@5": 1,
+      "reciprocal_rank": 1.0,
+      "ndcg@5": 1.0,
+      "tools_called": [],
+      "expected_tools": [
+        "search_medicines"
+      ],
+      "routing_recall": null,
+      "evidence_recall": null,
+      "gold_mention": null,
+      "judge_score": null,
+      "judge_verdict": "n/a",
+      "latency_ms": {
+        "end_to_end": 306.3,
+        "retrieval": 306.3
+      }
+    },
+    {
+      "id": 85,
+      "category": "medicine_vector",
+      "subtype": "by_side_effect",
+      "difficulty": "medium",
+      "retrieval_type": "semantic",
+      "question": "Which medicine does not commonly cause any side effects?",
+      "gold": [
+        "Aquasol C Oral Drops"
+      ],
+      "store": "vector",
+      "score_mode": "relevance",
+      "relevance_terms": [
+        "No common side effects seen"
+      ],
+      "ground_truth": "Aquasol C Oral Drops",
+      "answer": "",
+      "retrieved_top5": [
+        "Safeova Tablet",
+        "Zymoflam Tablet"
+      ],
+      "rank": 1,
+      "gold_found": true,
+      "retrieval_trace": [
+        {
+          "tool": "medicine_search",
+          "store": "vector",
+          "latency_ms": 258.5,
+          "top5": [
+            "Safeova Tablet",
+            "Zymoflam Tablet"
+          ],
+          "gold_rank": 1
+        }
+      ],
+      "recall@1": 1,
+      "recall@3": 1,
+      "recall@5": 1,
+      "reciprocal_rank": 1.0,
+      "ndcg@5": 1.0,
+      "tools_called": [],
+      "expected_tools": [
+        "search_medicines"
+      ],
+      "routing_recall": null,
+      "evidence_recall": null,
+      "gold_mention": null,
+      "judge_score": null,
+      "judge_verdict": "n/a",
+      "latency_ms": {
+        "end_to_end": 258.5,
+        "retrieval": 258.5
+      }
+    },
+    {
+      "id": 86,
+      "category": "hybrid",
+      "subtype": "symptom_to_disease_to_treatment",
+      "difficulty": "hard",
+      "retrieval_type": "multi_hop",
+      "question": "I've been feeling really sick with a high fever, a terrible headache, joint pain, and a rash all over my body. Could you tell me what might be causing these symptoms and how they are usually treated?",
+      "gold": [
+        "Dengue Fever"
+      ],
+      "store": "kg",
+      "score_mode": "rank",
+      "relevance_terms": [],
+      "ground_truth": "The symptoms could indicate an infectious disease, such as dengue fever or another similar condition. Treatment typically involves supportive care like hydration, pain relief, and rest. In severe cases, medical attention may include fluid replacement, blood transfusions, and hospitalization.",
+      "answer": "",
+      "retrieved_top5": [
+        "neuropathic pain",
+        "carpal tunnel syndrome",
+        "chronic inflammatory demyelinating polyneuropathy",
+        "magnesium deficiency",
+        "huntington disease"
+      ],
+      "rank": null,
+      "gold_found": false,
+      "retrieval_trace": [
+        {
+          "tool": "symptoms",
+          "store": "kg",
+          "latency_ms": 1045.6,
+          "top5": [
+            "neuropathic pain",
+            "carpal tunnel syndrome",
+            "chronic inflammatory demyelinating polyneuropathy",
+            "magnesium deficiency",
+            "huntington disease"
+          ],
+          "gold_rank": null
+        }
+      ],
+      "recall@1": 0,
+      "recall@3": 0,
+      "recall@5": 0,
+      "reciprocal_rank": 0.0,
+      "ndcg@5": 0.0,
+      "tools_called": [],
+      "expected_tools": [
+        "find_diseases_by_symptoms",
+        "get_disease_details"
+      ],
+      "routing_recall": null,
+      "evidence_recall": null,
+      "gold_mention": null,
+      "judge_score": null,
+      "judge_verdict": "n/a",
+      "latency_ms": {
+        "end_to_end": 1045.6,
+        "retrieval": 1045.6
+      }
+    },
+    {
+      "id": 87,
+      "category": "hybrid",
+      "subtype": "symptom_to_disease_to_treatment",
+      "difficulty": "hard",
+      "retrieval_type": "multi_hop",
+      "question": "I noticed some painless sores at the spot where I got bitten by a tick, and now I have a rash all over my body along with fever and swollen lymph nodes. Could this be something serious? What kind of treatment should I expect?",
+      "gold": [
+        "Syphilis"
+      ],
+      "store": "kg",
+      "score_mode": "rank",
+      "relevance_terms": [],
+      "ground_truth": "The symptoms could indicate an infection such as syphilis. Treatment usually involves antibiotics like penicillin, addressing any complications, and regular follow-ups for monitoring.",
+      "answer": "",
+      "retrieved_top5": [
+        "syphilis",
+        "cat scratch disease",
+        "chancroid",
+        "lymphoma",
+        "mononucleosis"
+      ],
+      "rank": 1,
+      "gold_found": true,
+      "retrieval_trace": [
+        {
+          "tool": "symptoms",
+          "store": "kg",
+          "latency_ms": 224.5,
+          "top5": [
+            "syphilis",
+            "cat scratch disease",
+            "chancroid",
+            "lymphoma",
+            "mononucleosis"
+          ],
+          "gold_rank": 1
+        }
+      ],
+      "recall@1": 1,
+      "recall@3": 1,
+      "recall@5": 1,
+      "reciprocal_rank": 1.0,
+      "ndcg@5": 1.0,
+      "tools_called": [],
+      "expected_tools": [
+        "find_diseases_by_symptoms",
+        "get_disease_details"
+      ],
+      "routing_recall": null,
+      "evidence_recall": null,
+      "gold_mention": null,
+      "judge_score": null,
+      "judge_verdict": "n/a",
+      "latency_ms": {
+        "end_to_end": 224.5,
+        "retrieval": 224.5
+      }
+    },
+    {
+      "id": 88,
+      "category": "hybrid",
+      "subtype": "symptom_to_disease_to_treatment",
+      "difficulty": "hard",
+      "retrieval_type": "multi_hop",
+      "question": "I've been having a headache and a fever for a few days, and I noticed some changes in my vision too. Could this be something serious like an infection inside the brain? And what kind of treatment would they give me?",
+      "gold": [
+        "Intracranial Abscess"
+      ],
+      "store": "kg",
+      "score_mode": "rank",
+      "relevance_terms": [],
+      "ground_truth": "The condition might involve an infection within the brain such as an abscess. Treatments include antibiotics, surgical drainage or removal of the abscess, and supportive care.",
+      "answer": "",
+      "retrieved_top5": [
+        "carpal tunnel syndrome",
+        "chronic inflammatory demyelinating polyneuropathy",
+        "magnesium deficiency",
+        "adenoid cystic carcinoma",
+        "neuropathic pain"
+      ],
+      "rank": null,
+      "gold_found": false,
+      "retrieval_trace": [
+        {
+          "tool": "symptoms",
+          "store": "kg",
+          "latency_ms": 226.8,
+          "top5": [
+            "carpal tunnel syndrome",
+            "chronic inflammatory demyelinating polyneuropathy",
+            "magnesium deficiency",
+            "adenoid cystic carcinoma",
+            "neuropathic pain"
+          ],
+          "gold_rank": null
+        }
+      ],
+      "recall@1": 0,
+      "recall@3": 0,
+      "recall@5": 0,
+      "reciprocal_rank": 0.0,
+      "ndcg@5": 0.0,
+      "tools_called": [],
+      "expected_tools": [
+        "find_diseases_by_symptoms",
+        "get_disease_details"
+      ],
+      "routing_recall": null,
+      "evidence_recall": null,
+      "gold_mention": null,
+      "judge_score": null,
+      "judge_verdict": "n/a",
+      "latency_ms": {
+        "end_to_end": 226.8,
+        "retrieval": 226.8
+      }
+    },
+    {
+      "id": 89,
+      "category": "hybrid",
+      "subtype": "symptom_to_disease_to_treatment",
+      "difficulty": "hard",
+      "retrieval_type": "multi_hop",
+      "question": "I've been feeling really tired lately, and my stomach feels swollen. Also, I noticed my liver seems bigger than usual and my doctor said my liver enzymes are high. What could this be? And what kind of treatment should I expect?",
+      "gold": [
+        "Nonalcoholic Liver Disease (NASH)"
+      ],
+      "store": "kg",
+      "score_mode": "rank",
+      "relevance_terms": [],
+      "ground_truth": "The symptoms you described might indicate a condition related to the liver. Treatments include lifestyle changes such as weight loss, eating a healthy diet, and regular exercise. Management of any underlying conditions is also important, and medication may be needed if necessary.",
+      "answer": "",
+      "retrieved_top5": [
+        "nonalcoholic fatty liver disease",
+        "congenital rubella",
+        "neuropathic pain",
+        "carpal tunnel syndrome",
+        "leishmaniasis"
+      ],
+      "rank": 1,
+      "gold_found": true,
+      "retrieval_trace": [
+        {
+          "tool": "symptoms",
+          "store": "kg",
+          "latency_ms": 227.3,
+          "top5": [
+            "nonalcoholic fatty liver disease",
+            "congenital rubella",
+            "neuropathic pain",
+            "carpal tunnel syndrome",
+            "leishmaniasis"
+          ],
+          "gold_rank": 1
+        }
+      ],
+      "recall@1": 1,
+      "recall@3": 1,
+      "recall@5": 1,
+      "reciprocal_rank": 1.0,
+      "ndcg@5": 1.0,
+      "tools_called": [],
+      "expected_tools": [
+        "find_diseases_by_symptoms",
+        "get_disease_details"
+      ],
+      "routing_recall": null,
+      "evidence_recall": null,
+      "gold_mention": null,
+      "judge_score": null,
+      "judge_verdict": "n/a",
+      "latency_ms": {
+        "end_to_end": 227.3,
+        "retrieval": 227.3
+      }
+    },
+    {
+      "id": 90,
+      "category": "hybrid",
+      "subtype": "symptom_to_disease_to_treatment",
+      "difficulty": "hard",
+      "retrieval_type": "multi_hop",
+      "question": "I have a severe sore throat that makes it hard to swallow, along with a fever and swollen tonsils. Can you tell me what condition this might be and how it is treated?",
+      "gold": [
+        "Peritonsillar Abscess"
+      ],
+      "store": "kg",
+      "score_mode": "rank",
+      "relevance_terms": [],
+      "ground_truth": "The condition might be an infection of the space next to the tonsils. Treatments include antibiotics to fight the infection, draining the abscess through needle aspiration or incision and drainage, pain relievers, warm saltwater gargles, rest, fluids, and in chronic or recurrent cases, surgical removal of the tonsils.",
+      "answer": "",
+      "retrieved_top5": [
+        "scarlet fever",
+        "influenza",
+        "pharyngitis",
+        "peritonsillar abscess",
+        "common cold"
+      ],
+      "rank": 4,
+      "gold_found": true,
+      "retrieval_trace": [
+        {
+          "tool": "symptoms",
+          "store": "kg",
+          "latency_ms": 217.9,
+          "top5": [
+            "scarlet fever",
+            "influenza",
+            "pharyngitis",
+            "peritonsillar abscess",
+            "common cold"
+          ],
+          "gold_rank": 4
+        }
+      ],
+      "recall@1": 0,
+      "recall@3": 0,
+      "recall@5": 1,
+      "reciprocal_rank": 0.25,
+      "ndcg@5": 0.431,
+      "tools_called": [],
+      "expected_tools": [
+        "find_diseases_by_symptoms",
+        "get_disease_details"
+      ],
+      "routing_recall": null,
+      "evidence_recall": null,
+      "gold_mention": null,
+      "judge_score": null,
+      "judge_verdict": "n/a",
+      "latency_ms": {
+        "end_to_end": 217.9,
+        "retrieval": 217.9
+      }
+    },
+    {
+      "id": 91,
+      "category": "hybrid",
+      "subtype": "symptom_to_disease_to_treatment",
+      "difficulty": "hard",
+      "retrieval_type": "multi_hop",
+      "question": "I've been having chronic diarrhea, lost some weight, and feel bloated often. I also notice that I'm not getting enough vitamins even though I eat well. Could this be due to an underlying condition? What kind of treatment is usually recommended?",
+      "gold": [
+        "Intestinal Malabsorption"
+      ],
+      "store": "kg",
+      "score_mode": "rank",
+      "relevance_terms": [],
+      "ground_truth": "Could this be due to an underlying condition? What kind of treatment is usually recommended? Treatments may include dietary modifications (specific to the underlying cause), supplementation of deficient nutrients, medications (to manage symptoms or underlying condition), and treatment of the underlying cause.",
+      "answer": "",
+      "retrieved_top5": [
+        "gastroenteritis",
+        "wilson disease",
+        "ischemia of the bowel",
+        "intestinal malabsorption",
+        "chronic sinusitis"
+      ],
+      "rank": 4,
+      "gold_found": true,
+      "retrieval_trace": [
+        {
+          "tool": "symptoms",
+          "store": "kg",
+          "latency_ms": 240.2,
+          "top5": [
+            "gastroenteritis",
+            "wilson disease",
+            "ischemia of the bowel",
+            "intestinal malabsorption",
+            "chronic sinusitis"
+          ],
+          "gold_rank": 4
+        }
+      ],
+      "recall@1": 0,
+      "recall@3": 0,
+      "recall@5": 1,
+      "reciprocal_rank": 0.25,
+      "ndcg@5": 0.431,
+      "tools_called": [],
+      "expected_tools": [
+        "find_diseases_by_symptoms",
+        "get_disease_details"
+      ],
+      "routing_recall": null,
+      "evidence_recall": null,
+      "gold_mention": null,
+      "judge_score": null,
+      "judge_verdict": "n/a",
+      "latency_ms": {
+        "end_to_end": 240.2,
+        "retrieval": 240.2
+      }
+    },
+    {
+      "id": 92,
+      "category": "hybrid",
+      "subtype": "symptom_to_disease_to_treatment",
+      "difficulty": "hard",
+      "retrieval_type": "multi_hop",
+      "question": "I've been experiencing some vaginal bleeding during my third trimester, and it's painless. Could you tell me what might be causing this and how it's usually treated?",
+      "gold": [
+        "Placenta Previa"
+      ],
+      "store": "kg",
+      "score_mode": "rank",
+      "relevance_terms": [],
+      "ground_truth": "The condition might be placenta previa. It is typically treated with bed rest, avoiding strenuous activity, frequent prenatal check-ups, potential hospitalization, and potential cesarean delivery.",
+      "answer": "",
+      "retrieved_top5": [
+        "induced abortion",
+        "placenta previa",
+        "threatened pregnancy",
+        "endometrial cancer",
+        "ectopic pregnancy"
+      ],
+      "rank": 2,
+      "gold_found": true,
+      "retrieval_trace": [
+        {
+          "tool": "symptoms",
+          "store": "kg",
+          "latency_ms": 241.6,
+          "top5": [
+            "induced abortion",
+            "placenta previa",
+            "threatened pregnancy",
+            "endometrial cancer",
+            "ectopic pregnancy"
+          ],
+          "gold_rank": 2
+        }
+      ],
+      "recall@1": 0,
+      "recall@3": 1,
+      "recall@5": 1,
+      "reciprocal_rank": 0.5,
+      "ndcg@5": 0.631,
+      "tools_called": [],
+      "expected_tools": [
+        "find_diseases_by_symptoms",
+        "get_disease_details"
+      ],
+      "routing_recall": null,
+      "evidence_recall": null,
+      "gold_mention": null,
+      "judge_score": null,
+      "judge_verdict": "n/a",
+      "latency_ms": {
+        "end_to_end": 241.6,
+        "retrieval": 241.6
+      }
+    },
+    {
+      "id": 93,
+      "category": "hybrid",
+      "subtype": "symptom_to_disease_to_treatment",
+      "difficulty": "hard",
+      "retrieval_type": "multi_hop",
+      "question": "I've been feeling really confused, my speech is slurred, and I have trouble walking properly. Could you tell me what might be causing this and how it will be treated?",
+      "gold": [
+        "Alcohol Intoxication"
+      ],
+      "store": "kg",
+      "score_mode": "rank",
+      "relevance_terms": [],
+      "ground_truth": "The symptoms suggest alcohol intoxication. The treatment includes supportive care, ensuring hydration, monitoring vital signs, and preventing complications.",
+      "answer": "",
+      "retrieved_top5": [
+        "wilson disease",
+        "injury to the leg",
+        "plantar fasciitis",
+        "cannabis use disorder",
+        "muscular dystrophy"
+      ],
+      "rank": null,
+      "gold_found": false,
+      "retrieval_trace": [
+        {
+          "tool": "symptoms",
+          "store": "kg",
+          "latency_ms": 234.7,
+          "top5": [
+            "wilson disease",
+            "injury to the leg",
+            "plantar fasciitis",
+            "cannabis use disorder",
+            "muscular dystrophy"
+          ],
+          "gold_rank": null
+        }
+      ],
+      "recall@1": 0,
+      "recall@3": 0,
+      "recall@5": 0,
+      "reciprocal_rank": 0.0,
+      "ndcg@5": 0.0,
+      "tools_called": [],
+      "expected_tools": [
+        "find_diseases_by_symptoms",
+        "get_disease_details"
+      ],
+      "routing_recall": null,
+      "evidence_recall": null,
+      "gold_mention": null,
+      "judge_score": null,
+      "judge_verdict": "n/a",
+      "latency_ms": {
+        "end_to_end": 234.7,
+        "retrieval": 234.7
+      }
+    },
+    {
+      "id": 94,
+      "category": "hybrid",
+      "subtype": "symptom_to_disease_to_treatment",
+      "difficulty": "hard",
+      "retrieval_type": "multi_hop",
+      "question": "I'm experiencing inflammation of the glans penis, redness, swelling, and pain. Could you tell me what this might be and how it's treated?",
+      "gold": [
+        "Balanitis"
+      ],
+      "store": "kg",
+      "score_mode": "rank",
+      "relevance_terms": [],
+      "ground_truth": "The condition might be balanitis. Treatments include good hygiene, topical antifungal or antibacterial creams, corticosteroid creams (if severe), and treating underlying causes.",
+      "answer": "",
+      "retrieved_top5": [
+        "cirrhosis",
+        "neuropathic pain",
+        "carpal tunnel syndrome",
+        "chronic inflammatory demyelinating polyneuropathy",
+        "balanitis"
+      ],
+      "rank": 5,
+      "gold_found": true,
+      "retrieval_trace": [
+        {
+          "tool": "symptoms",
+          "store": "kg",
+          "latency_ms": 236.5,
+          "top5": [
+            "cirrhosis",
+            "neuropathic pain",
+            "carpal tunnel syndrome",
+            "chronic inflammatory demyelinating polyneuropathy",
+            "balanitis"
+          ],
+          "gold_rank": 5
+        }
+      ],
+      "recall@1": 0,
+      "recall@3": 0,
+      "recall@5": 1,
+      "reciprocal_rank": 0.2,
+      "ndcg@5": 0.387,
+      "tools_called": [],
+      "expected_tools": [
+        "find_diseases_by_symptoms",
+        "get_disease_details"
+      ],
+      "routing_recall": null,
+      "evidence_recall": null,
+      "gold_mention": null,
+      "judge_score": null,
+      "judge_verdict": "n/a",
+      "latency_ms": {
+        "end_to_end": 236.5,
+        "retrieval": 236.5
+      }
+    },
+    {
+      "id": 95,
+      "category": "hybrid",
+      "subtype": "symptom_to_disease_to_treatment",
+      "difficulty": "hard",
+      "retrieval_type": "multi_hop",
+      "question": "I've been experiencing swelling, pain, dry mouth, and a bad taste in my mouth. Could you tell me what might be causing this and how it’s treated?",
+      "gold": [
+        "Wharton's duct stones"
+      ],
+      "store": "kg",
+      "score_mode": "rank",
+      "relevance_terms": [],
+      "ground_truth": "The condition might be due to an issue with the salivary glands. Treatments include hydration, saliva stimulation, and stone removal.",
+      "answer": "",
+      "retrieved_top5": [
+        "whartons duct stones",
+        "submandibular stones",
+        "neuropathic pain",
+        "carpal tunnel syndrome",
+        "parotid stones"
+      ],
+      "rank": 1,
+      "gold_found": true,
+      "retrieval_trace": [
+        {
+          "tool": "symptoms",
+          "store": "kg",
+          "latency_ms": 238.3,
+          "top5": [
+            "whartons duct stones",
+            "submandibular stones",
+            "neuropathic pain",
+            "carpal tunnel syndrome",
+            "parotid stones"
+          ],
+          "gold_rank": 1
+        }
+      ],
+      "recall@1": 1,
+      "recall@3": 1,
+      "recall@5": 1,
+      "reciprocal_rank": 1.0,
+      "ndcg@5": 1.0,
+      "tools_called": [],
+      "expected_tools": [
+        "find_diseases_by_symptoms",
+        "get_disease_details"
+      ],
+      "routing_recall": null,
+      "evidence_recall": null,
+      "gold_mention": null,
+      "judge_score": null,
+      "judge_verdict": "n/a",
+      "latency_ms": {
+        "end_to_end": 238.3,
+        "retrieval": 238.3
+      }
+    },
+    {
+      "id": 96,
+      "category": "hybrid",
+      "subtype": "symptom_to_disease_to_treatment",
+      "difficulty": "hard",
+      "retrieval_type": "multi_hop",
+      "question": "I've been experiencing a lot of tearing, eye discharge, and recurrent infections. Could you tell me what condition this might be due to and how it's typically treated?",
+      "gold": [
+        "Stenosis of the Tear Duct"
+      ],
+      "store": "kg",
+      "score_mode": "rank",
+      "relevance_terms": [],
+      "ground_truth": "The condition might be stenosis of the tear duct. Treatments on record include tear duct probing, dilation, and surgical correction.",
+      "answer": "",
+      "retrieved_top5": [
+        "cirrhosis",
+        "stenosis of the tear duct",
+        "wilson disease",
+        "hemolytic anemia",
+        "chronic otitis media"
+      ],
+      "rank": 2,
+      "gold_found": true,
+      "retrieval_trace": [
+        {
+          "tool": "symptoms",
+          "store": "kg",
+          "latency_ms": 241.6,
+          "top5": [
+            "cirrhosis",
+            "stenosis of the tear duct",
+            "wilson disease",
+            "hemolytic anemia",
+            "chronic otitis media"
+          ],
+          "gold_rank": 2
+        }
+      ],
+      "recall@1": 0,
+      "recall@3": 1,
+      "recall@5": 1,
+      "reciprocal_rank": 0.5,
+      "ndcg@5": 0.631,
+      "tools_called": [],
+      "expected_tools": [
+        "find_diseases_by_symptoms",
+        "get_disease_details"
+      ],
+      "routing_recall": null,
+      "evidence_recall": null,
+      "gold_mention": null,
+      "judge_score": null,
+      "judge_verdict": "n/a",
+      "latency_ms": {
+        "end_to_end": 241.6,
+        "retrieval": 241.6
+      }
+    },
+    {
+      "id": 97,
+      "category": "hybrid",
+      "subtype": "symptom_to_disease_to_treatment",
+      "difficulty": "hard",
+      "retrieval_type": "multi_hop",
+      "question": "I've been having really bad abdominal pain, and I noticed some blood in my vomit and stool. What could this be? And what kind of treatments are usually given for this condition?",
+      "gold": [
+        "Gastrointestinal Hemorrhage"
+      ],
+      "store": "kg",
+      "score_mode": "rank",
+      "relevance_terms": [],
+      "ground_truth": "Gastrointestinal Hemorrhage -- HIDDEN; Blood transfusions, endoscopy, surgery (in severe cases), medications to stop bleeding",
+      "answer": "",
+      "retrieved_top5": [
+        "cirrhosis",
+        "hemolytic anemia",
+        "choledocholithiasis",
+        "neonatal jaundice",
+        "wilson disease"
+      ],
+      "rank": null,
+      "gold_found": false,
+      "retrieval_trace": [
+        {
+          "tool": "symptoms",
+          "store": "kg",
+          "latency_ms": 308.1,
+          "top5": [
+            "cirrhosis",
+            "hemolytic anemia",
+            "choledocholithiasis",
+            "neonatal jaundice",
+            "wilson disease"
+          ],
+          "gold_rank": null
+        }
+      ],
+      "recall@1": 0,
+      "recall@3": 0,
+      "recall@5": 0,
+      "reciprocal_rank": 0.0,
+      "ndcg@5": 0.0,
+      "tools_called": [],
+      "expected_tools": [
+        "find_diseases_by_symptoms",
+        "get_disease_details"
+      ],
+      "routing_recall": null,
+      "evidence_recall": null,
+      "gold_mention": null,
+      "judge_score": null,
+      "judge_verdict": "n/a",
+      "latency_ms": {
+        "end_to_end": 308.1,
+        "retrieval": 308.1
+      }
+    },
+    {
+      "id": 98,
+      "category": "hybrid",
+      "subtype": "symptom_to_disease_to_treatment",
+      "difficulty": "hard",
+      "retrieval_type": "multi_hop",
+      "question": "I've been experiencing some motor issues, cognitive problems, and psychiatric symptoms. Could you tell me what condition this might be due to and how it's typically treated?",
+      "gold": [
+        "Huntington Disease"
+      ],
+      "store": "kg",
+      "score_mode": "rank",
+      "relevance_terms": [],
+      "ground_truth": "The condition might be Huntington Disease. Treatments include supportive care, medications (to manage symptoms), and therapy.",
+      "answer": "",
+      "retrieved_top5": [
+        "cannabis use disorder",
+        "ovarian torsion",
+        "neuropathic pain",
+        "carpal tunnel syndrome",
+        "huntington disease"
+      ],
+      "rank": 5,
+      "gold_found": true,
+      "retrieval_trace": [
+        {
+          "tool": "symptoms",
+          "store": "kg",
+          "latency_ms": 249.6,
+          "top5": [
+            "cannabis use disorder",
+            "ovarian torsion",
+            "neuropathic pain",
+            "carpal tunnel syndrome",
+            "huntington disease"
+          ],
+          "gold_rank": 5
+        }
+      ],
+      "recall@1": 0,
+      "recall@3": 0,
+      "recall@5": 1,
+      "reciprocal_rank": 0.2,
+      "ndcg@5": 0.387,
+      "tools_called": [],
+      "expected_tools": [
+        "find_diseases_by_symptoms",
+        "get_disease_details"
+      ],
+      "routing_recall": null,
+      "evidence_recall": null,
+      "gold_mention": null,
+      "judge_score": null,
+      "judge_verdict": "n/a",
+      "latency_ms": {
+        "end_to_end": 249.6,
+        "retrieval": 249.6
+      }
+    },
+    {
+      "id": 99,
+      "category": "hybrid",
+      "subtype": "symptom_to_disease_to_treatment",
+      "difficulty": "hard",
+      "retrieval_type": "multi_hop",
+      "question": "I'm having really bad pain, swelling, and bruising around my knee, and it's hard to bend or straighten it. Could this be something serious? What kind of treatment can I expect?",
+      "gold": [
+        "Fracture of the Patella"
+      ],
+      "store": "kg",
+      "score_mode": "rank",
+      "relevance_terms": [],
+      "ground_truth": "The symptoms you're experiencing could indicate a fracture or other injury to the knee. Treatments may include immobilization with a splint, cast, or brace, pain management, physical therapy, exercises to restore mobility and strength, and potential surgical intervention if necessary.",
+      "answer": "",
+      "retrieved_top5": [
+        "cirrhosis",
+        "neuropathic pain",
+        "carpal tunnel syndrome",
+        "chronic inflammatory demyelinating polyneuropathy",
+        "dislocation of the patella"
+      ],
+      "rank": null,
+      "gold_found": false,
+      "retrieval_trace": [
+        {
+          "tool": "symptoms",
+          "store": "kg",
+          "latency_ms": 263.9,
+          "top5": [
+            "cirrhosis",
+            "neuropathic pain",
+            "carpal tunnel syndrome",
+            "chronic inflammatory demyelinating polyneuropathy",
+            "dislocation of the patella"
+          ],
+          "gold_rank": null
+        }
+      ],
+      "recall@1": 0,
+      "recall@3": 0,
+      "recall@5": 0,
+      "reciprocal_rank": 0.0,
+      "ndcg@5": 0.0,
+      "tools_called": [],
+      "expected_tools": [
+        "find_diseases_by_symptoms",
+        "get_disease_details"
+      ],
+      "routing_recall": null,
+      "evidence_recall": null,
+      "gold_mention": null,
+      "judge_score": null,
+      "judge_verdict": "n/a",
+      "latency_ms": {
+        "end_to_end": 263.9,
+        "retrieval": 263.9
+      }
+    },
+    {
+      "id": 100,
+      "category": "hybrid",
+      "subtype": "symptom_to_disease_to_treatment",
+      "difficulty": "hard",
+      "retrieval_type": "multi_hop",
+      "question": "I've been feeling more energetic than usual but I don't have much of an appetite anymore. My heart has also been beating really fast. Could you tell me what might be causing this and how it's usually treated?",
+      "gold": [
+        "Drug Abuse (Methamphetamine)"
+      ],
+      "store": "kg",
+      "score_mode": "rank",
+      "relevance_terms": [],
+      "ground_truth": "The symptoms could indicate a condition such as Drug Abuse (Methamphetamine). Treatments typically include detoxification, counseling, behavioral therapies, support groups, and medication-assisted treatment if applicable.",
+      "answer": "",
+      "retrieved_top5": [
+        "postpartum depression",
+        "foreign body in the gastrointestinal tract",
+        "cirrhosis",
+        "magnesium deficiency",
+        "dysthymic disorder"
+      ],
+      "rank": null,
+      "gold_found": false,
+      "retrieval_trace": [
+        {
+          "tool": "symptoms",
+          "store": "kg",
+          "latency_ms": 271.5,
+          "top5": [
+            "postpartum depression",
+            "foreign body in the gastrointestinal tract",
+            "cirrhosis",
+            "magnesium deficiency",
+            "dysthymic disorder"
+          ],
+          "gold_rank": null
+        }
+      ],
+      "recall@1": 0,
+      "recall@3": 0,
+      "recall@5": 0,
+      "reciprocal_rank": 0.0,
+      "ndcg@5": 0.0,
+      "tools_called": [],
+      "expected_tools": [
+        "find_diseases_by_symptoms",
+        "get_disease_details"
+      ],
+      "routing_recall": null,
+      "evidence_recall": null,
+      "gold_mention": null,
+      "judge_score": null,
+      "judge_verdict": "n/a",
+      "latency_ms": {
+        "end_to_end": 271.5,
+        "retrieval": 271.5
+      }
+    }
+  ]
+}

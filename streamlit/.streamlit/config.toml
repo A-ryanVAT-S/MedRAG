@@ -1,0 +1,13 @@
+# Medical theme: clean teal + mint on white.
+[theme]
+primaryColor = "#0E8C7F"
+backgroundColor = "#FFFFFF"
+secondaryBackgroundColor = "#EAF4F2"
+textColor = "#15302C"
+font = "sans serif"
+
+[server]
+runOnSave = true
+
+[browser]
+gatherUsageStats = false

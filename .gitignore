@@ -16,7 +16,8 @@ __pycache__/
 
 # ChromaDB vector database (large files, should be regenerated)
 DB/chroma_db/
-DB/.llm_cache.json 
+DB/.llm_cache.json
+DB/medicines.json
 
 # Large data files (too big for GitHub, can be easily found on kaggle)
 data/medicine_data.csv
@@ -60,6 +61,9 @@ htmlcov/
 
 # MyPy type checker
 .mypy_cache/
+
+# Transient evaluation stream (per-query results; eval.json is the final report)
+Evaluation/eval_partial.jsonl
 
 # Other
 *.bak

@@ -1,13 +1,11 @@
-from .agent1_router import QueryRoutingAgent
 from .agent2_kg_retrieval import KnowledgeGraphRetrievalAgent
 from .agent3_vector_retrieval import VectorRetrievalAgent
-from .agent4_synthesis import ResponseSynthesisAgent
+from .agent_core import MedicalAgent
 
 __all__ = [
-    "QueryRoutingAgent",
     "KnowledgeGraphRetrievalAgent",
     "VectorRetrievalAgent",
-    "ResponseSynthesisAgent"
+    "MedicalAgent",
 ]
 
-__version__ = "1.0.0"
+__version__ = "2.0.0"
